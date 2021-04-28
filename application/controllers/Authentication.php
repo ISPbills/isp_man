@@ -9,14 +9,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function __construct()
 		{
 			parent::__construct();
-			$this->load->helper('form');
 			$this->load->model('Auth_Model');
 		}
 
 		public function index()
 		{
-			$title['title'] = 'ISP Man | Login';
-			$this->load->view('login', $title);
+			$this->load->view('login');
 		}
 
 		public function login()
@@ -29,10 +27,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->form_validation->set_rules('username', 'Username', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
 		
-		if($this->form_validation->run() == false)
+		if($this->form_validation->run() == FALSE)
 		{
-			$title['title'] = 'ISP Man | Login';
-			$this->load->view('login', $title);
+			$this->load->view('login');
 		}
 		else
 		{
