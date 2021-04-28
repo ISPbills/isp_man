@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		{
 			parent::__construct();
 			$this->load->helper('form');
-			$this->load->library('form_validation');
+			$this->load->model('Auth_Model');
 		}
 
 		public function index()
@@ -21,6 +21,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function login()
 		{
+			if($this->session->userdata('authenticated'))
+			{
+				redirect('Dashboard/index');
+			}
+
 			$this->form_validation->set_rules('username', 'Username', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
 		
@@ -39,20 +44,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if($user)
 			{
 				$userdata = array(
-					'id' => $staff_id,
-					'first_name' => $first_name,
-					'last_name' => $last_name,
+					'staff_id' => $user->staff_id,
+					'first_name' => $user->first_name,
+					'last_name' => $user->last_name,
 					'authenticated' => TRUE,
 				);
 
 				$this->session->set_userdata($userdata);
 
-				redirect('dashboard');
+				redirect('Dashboard/index');
 
+			}
+			else
+			{
+				$this->session->set_flashdata('message', 'Invalid Credentials');
+				redirect(base_url());
 			}
 
 		}
 
+		}
+
+		public function logout()
+		{
+			$this->session->sess_destroy();
+			redirect(base_url());
 		}
 
 	}

@@ -5,6 +5,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	 */
 	class Dashboard extends CI_Controller
 	{
+
+		public function __construct()
+		{
+			parent::__construct();
+			$this->logged_id();
+		}
+
+		private function logged_id()
+		{
+			if(!$this->session->userdata('authenticated'))
+			{
+				redirect(base_url());
+			}
+		}
+
 		public function index()
 		{
 			$this->load->view('layouts/header');
