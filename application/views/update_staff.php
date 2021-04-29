@@ -23,21 +23,21 @@
         <h3 class="card-title">Update Form</h3>
       </div>
       <!-- /.card-header -->
-      
+
       <!-- form start -->
-      <?php echo form_open('Operations/create_staff'); ?>
+      <?php echo form_open('Operations/update_staff'); ?>
         <div class="card-body">
           
           <div class="form-row">
             <div class="form-group col-md">
               <label for="inputUsername">Username</label>
-              <input type="text" name="username" class="form-control" id="inputUsername">
+              <input type="text" name="username" class="form-control" value="<?php echo $staff->username; ?>" id="inputUsername">
               <div class="text-danger"><?php echo form_error('username'); ?></div>
             </div>
 
             <div class="form-group col-md">
               <label for="inputPass">Password</label>
-              <input type="password" name="password" class="form-control" id="inputPass">
+              <input type="password" name="password" class="form-control" placeholder="Type New Password If Required" id="inputPass">
               <div class="text-danger"><?php echo form_error('password'); ?></div>
             </div>
           </div>
@@ -45,13 +45,13 @@
           <div class="form-row">
             <div class="form-group col-md">
               <label for="inputFirstName">First Name</label>
-              <input type="text" name="first_name" class="form-control" id="inputFirstName">
+              <input type="text" name="first_name" class="form-control" value="<?php echo $staff->first_name; ?>" id="inputFirstName">
               <div class="text-danger"><?php echo form_error('first_name'); ?></div>
             </div>
 
             <div class="form-group col-md">
               <label for="inputLastName">Last Name</label>
-              <input type="text" name="last_name" class="form-control" id="inputLastName">
+              <input type="text" name="last_name" class="form-control" value="<?php echo $staff->last_name; ?>" id="inputLastName">
               <div class="text-danger"><?php echo form_error('last_name'); ?></div>
             </div>
           </div>
@@ -59,7 +59,7 @@
           <div class="form-row">
             <div class="form-group col-md">
               <label for="inputContact">Contact #</label>
-              <input type="text" name="contact_no" class="form-control" id="inputContact">
+              <input type="text" name="contact_no" class="form-control" value="<?php echo $staff->contact_no; ?>" id="inputContact">
               <div class="text-danger"><?php echo form_error('contact_no'); ?></div>
             </div>
 
@@ -73,25 +73,6 @@
               <div class="text-danger"><?php echo form_error('staff_role'); ?></div>
             </div>
           </div>
-
-          <select class="custom-select" name="area_id">
-            <?php
-              $areas = $organ->query('SELECT DISTINCT ar_name, area_id FROM tbl_area');
-              foreach($areas as $areas):
-            ?>
-                <option value="<?php echo $areas['area_id']; ?>"<?php if($row['ar_name'] == $areas['ar_name']) echo 'selected="selected"'; ?>><?php echo $areas['ar_name']; ?></option>
-            <?php
-              endforeach;
-            ?>
-          </select>
-
-          <select name="staff_role">
-
-            <?php foreach ($staff as $row) { ?>
-            <option value="<?php echo $row['staff_role'] ?>" <?php if($row['staff_role'] == $row['staff_role']){ echo 'selected="selected"'; } ?>><?php echo $row['staff_role'] ?> </option>
-            <?php } ?>
-
-          </select>
 
           <div class="form-row">
             <div class="form-group col-md">

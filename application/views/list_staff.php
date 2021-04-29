@@ -50,12 +50,12 @@
           <tbody>
             <?php if(!empty($staff)){ foreach($staff as $row){ ?>
             <tr>
-              <td><?php echo $row['username']; ?></td>
-              <td><?php echo $row['first_name']; ?></td>
-              <td><?php echo $row['last_name']; ?></td>
-              <td><?php echo $row['contact_no']; ?></td>
-              <td><?php echo $row['staff_role']; ?></td>
-              <td><?php echo $row['branch_id']; ?></td>
+              <td><?php echo $row->username; ?></td>
+              <td><?php echo $row->first_name; ?></td>
+              <td><?php echo $row->last_name; ?></td>
+              <td><?php echo $row->contact_no; ?></td>
+              <td><?php echo $row->staff_role; ?></td>
+              <td><?php echo $row->branch_id; ?></td>
               <td>
                 <div class="dropdown">
                   <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -63,8 +63,8 @@
                   </a>
 
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="<?php echo base_url('Operations/update_staff/' . $row['staff_id']); ?>">Edit</a>
-                    <a class="dropdown-item" href="<?php echo base_url('Operations/delete_staff/' . $row['staff_id']); ?>">Delete</a>
+                    <a class="dropdown-item" href="<?php echo base_url('Operations/update_staff/' . $row->staff_id); ?>">Edit</a>
+                    <a class="dropdown-item" href="<?php echo base_url('Operations/delete_staff/' . $row->staff_id); ?>">Delete</a>
                   </div>
                 </div>
               </td>
