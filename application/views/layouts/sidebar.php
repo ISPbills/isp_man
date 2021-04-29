@@ -37,9 +37,9 @@
           <li class="nav-header">Staff Management</li>
           
               <li class="nav-item">
-                <a href="<?php echo base_url('Operations/create_staff'); ?>" class="nav-link">
+                <a href="<?php echo base_url('Operations/read_staff'); ?>" class="nav-link">
                   <i class="fas fa-user-cog nav-icon"></i>
-                  <p>Add Staff</p>
+                  <p>Manage Staff</p>
                 </a>
               </li>
 

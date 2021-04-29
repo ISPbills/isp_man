@@ -1,5 +1,5 @@
 <?php
-
+defined('BASEPATH') OR exit('No direct script access allowed');
 	/**
 	 * Operations Controller
 	 */
@@ -51,9 +51,26 @@
 
 		public function read_staff()
 		{
+			$staff = $this->Operations_Model->fetch_all_staff();
+			$data = array();
+			$data['staff'] = $staff;
+
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
-			$this->load->view('list_staff');
+			$this->load->view('list_staff', $data);
+			$this->load->view('layouts/footer');
+		}
+
+		public function update_staff($staff_id)
+		{
+			$staff = $this->Operations_Model->fetch_single_staff($staff_id);
+
+			$data = array();
+			$data['staff'] = $staff;
+
+			$this->load->view('layouts/header');
+			$this->load->view('layouts/sidebar');
+			$this->load->view('update_staff', $data);
 			$this->load->view('layouts/footer');
 		}
 
