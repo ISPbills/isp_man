@@ -55,4 +55,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->update('tbl_branch', $formArray);
 		}
 
+		public function create_area($formArray)
+		{
+			$this->db->insert('tbl_area', $formArray);
+		}
+
+		public function fetch_all_area()
+		{
+			return $area = $this->db->get('tbl_area')->result();
+		}
+
 	}

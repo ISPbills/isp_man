@@ -202,9 +202,52 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$formArray['branch_mobile'] = $this->input->post('branch_mobile');
 				
 				$this->Operations_Model->update_branch($branch_id, $formArray);
-				$this->session->set_flashdata('success', 'Branch Update Successfully');
+				$this->session->set_flashdata('success', 'Branch Updated Successfully');
 				redirect(base_url('Operations/read_branch'));
+			}
+		}
 
+		public function read_area()
+		{
+			$area = $this->Operations_Model->fetch_all_area();
+			$data = array();
+			$data['area'] = $area;
+
+			$this->load->view('layouts/header');
+			$this->load->view('layouts/sidebar');
+			$this->load->view('area/list_area', $data);
+			$this->load->view('layouts/footer');
+		}
+
+		public function create_area()
+		{
+			$this->form_validation->set_rules('area_name', 'Area Name', 'required');
+			$this->form_validation->set_rules('area_district', 'Area District', 'required');
+			$this->form_validation->set_rules('area_city', 'Area City', 'required');
+			$this->form_validation->set_rules('area_state', 'Area State', 'required');
+			$this->form_validation->set_rules('area_pin', 'Area Pin Code', 'required');
+			$this->form_validation->set_rules('area_country', 'Area Country', 'required');
+
+			if($this->form_validation->run() == FALSE)
+			{
+				$this->load->view('layouts/header');
+				$this->load->view('layouts/sidebar');
+				$this->load->view('area/create_area');
+				$this->load->view('layouts/footer');
+			}
+			else
+			{
+				$formArray = array();
+				$formArray['area_name'] = $this->input->post('area_name');
+				$formArray['area_district'] = $this->input->post('area_district');
+				$formArray['area_city'] = $this->input->post('area_city');
+				$formArray['area_state'] = $this->input->post('area_state');
+				$formArray['area_pin'] = $this->input->post('area_pin');
+				$formArray['area_country'] = $this->input->post('area_country');
+
+				$this->Operations_Model->create_area($formArray);
+				$this->session->set_flashdata('success', 'Area Added Successfully');
+				redirect(base_url('Operations/read_area'));
 			}
 		}
 
