@@ -102,8 +102,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$formArray['contact_no'] = $this->input->post('contact_no');
 				$formArray['staff_role'] = $this->input->post('staff_role');
 				$formArray['branch_id'] = $this->input->post('branch_id');
+				
 				$this->Operations_Model->update_staff($staff_id, $formArray);
-
 				$this->session->set_flashdata('success', 'Staff Update Successfully');
 				redirect(base_url('Operations/read_staff'));
 			}
@@ -169,7 +169,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->session->set_flashdata('success', 'Branch Added Successfully');
 				redirect('Operations/read_branch');
 			}
+		}
 
+		public function update_branch($branch_id)
+		{
+			$branch = $this->Operations_Model->fetch_single_branch($branch_id);
+			$data = array();
+			$data['branch'] = $branch;
+
+			$this->form_validation->set_rules('branch_name', 'Branch Name', 'required');
+			$this->form_validation->set_rules('business_gst', '15 digit GST Number', 'required');
+			$this->form_validation->set_rules('branch_address', 'Branch Address', 'required');
+			$this->form_validation->set_rules('branch_area', 'Branch Area', 'required');
+			$this->form_validation->set_rules('branch_landline', 'Landline #', 'required');
+			$this->form_validation->set_rules('branch_mobile', 'Mobile #', 'required');
+
+			if($this->form_validation->run() == FALSE)
+			{
+				$this->load->view('layouts/header');
+				$this->load->view('layouts/sidebar');
+				$this->load->view('branch/update_branch', $data);
+				$this->load->view('layouts/footer');
+			}
+			else
+			{
+				$formArray = array();
+				$formArray['branch_name'] = $this->input->post('branch_name');
+				$formArray['business_gst'] = $this->input->post('business_gst');
+				$formArray['branch_address'] = $this->input->post('branch_address');
+				$formArray['branch_area'] = $this->input->post('branch_area');
+				$formArray['branch_landline'] = $this->input->post('branch_landline');
+				$formArray['branch_mobile'] = $this->input->post('branch_mobile');
+				
+				$this->Operations_Model->update_branch($branch_id, $formArray);
+				$this->session->set_flashdata('success', 'Branch Update Successfully');
+				redirect(base_url('Operations/read_branch'));
+
+			}
 		}
 
 	}

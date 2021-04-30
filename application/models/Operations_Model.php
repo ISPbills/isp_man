@@ -43,4 +43,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $branch = $this->db->get('tbl_branch')->result();
 		}
 
+		public function fetch_single_branch($branch_id)
+		{
+			$this->db->where('branch_id', $branch_id);
+			return $branch = $this->db->get('tbl_branch')->row();
+		}
+
+		public function update_branch($branch_id, $formArray)
+		{
+			$this->db->where('branch_id', $branch_id);
+			$this->db->update('tbl_branch', $formArray);
+		}
+
 	}

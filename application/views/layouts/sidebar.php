@@ -40,6 +40,14 @@
             </li>
 
           <li class="nav-header">Administration Settings</li>
+
+            <li class="nav-item">
+              <a href="<?php echo base_url('Operations/read_staff'); ?>" class="nav-link">
+                <i class="fas fa-building nav-icon"></i>
+                <p>Area Setting</p>
+              </a>
+            </li>
+
             <li class="nav-item">
               <a href="<?php echo base_url('Operations/read_staff'); ?>" class="nav-link">
                 <i class="fas fa-user-cog nav-icon"></i>
