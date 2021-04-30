@@ -18,6 +18,19 @@
 <!-- Main content -->
 <div class="content">
   <div class="container">
+
+    <?php $success = $this->session->userdata('success'); if($success != ""){ ?>
+
+      <div class="alert alert-success"><?php echo $success; ?></div>
+
+    <?php } ?>
+
+    <?php $error = $this->session->userdata('error'); if($error != ""){ ?>
+
+      <div class="alert alert-danger"><?php echo $error; ?></div>
+
+    <?php } ?>
+
     <div class="card">
       <div class="card-header">
         <a href="<?php echo base_url('Operations/create_staff'); ?>" class="btn btn-sm btn-warning">Add Staff</a>
@@ -34,6 +47,7 @@
         </div>
       </div>
       <!-- /.card-header -->
+
       <div class="card-body table-responsive p-0">
         <table class="table table-hover text-center table-bordered table-sm table-head-fixed text-nowrap">
           <thead>
@@ -44,7 +58,7 @@
               <th>Contact #</th>
               <th>Role</th>
               <th>Branch</th>
-              <th colspan="2">Action</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -58,10 +72,9 @@
               <td><?php echo $row->branch_id; ?></td>
               <td>
                 <div class="dropdown">
-                  <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a class="btn btn-secondary btn-xs dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Action
                   </a>
-
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="<?php echo base_url('Operations/update_staff/' . $row->staff_id); ?>">Edit</a>
                     <a class="dropdown-item" href="<?php echo base_url('Operations/delete_staff/' . $row->staff_id); ?>">Delete</a>

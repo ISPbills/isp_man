@@ -25,7 +25,7 @@
       <!-- /.card-header -->
 
       <!-- form start -->
-      <?php echo form_open('Operations/update_staff'); ?>
+      <?php echo form_open('Operations/update_staff/' . $staff->staff_id); ?>
         <div class="card-body">
           
           <div class="form-row">

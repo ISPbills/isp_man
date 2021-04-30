@@ -27,4 +27,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->update('tbl_staff', $formArray);
 		}
 
+		public function delete_staff($staff_id)
+		{
+			$this->db->where('staff_id', $staff_id);
+			$this->db->delete('tbl_staff');
+		}
+
 	}

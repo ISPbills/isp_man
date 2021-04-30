@@ -9,7 +9,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function __construct()
 		{
 			parent::__construct();
+			$this->logged_id();
 			$this->load->model('Operations_Model');
+		}
+
+		private function logged_id()
+		{
+			if(!$this->session->userdata('authenticated'))
+			{
+				redirect(base_url());
+			}
+		}
+
+		public function read_staff()
+		{
+			$staff = $this->Operations_Model->fetch_all_staff();
+			$data = array();
+			$data['staff'] = $staff;
+
+			$this->load->view('layouts/header');
+			$this->load->view('layouts/sidebar');
+			$this->load->view('staff/list_staff', $data);
+			$this->load->view('layouts/footer');
 		}
 
 		public function create_staff()
@@ -28,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			{
 				$this->load->view('layouts/header');
 				$this->load->view('layouts/sidebar');
-				$this->load->view('create_staff');
+				$this->load->view('staff/create_staff');
 				$this->load->view('layouts/footer');
 			}
 			else
@@ -50,18 +71,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		}
 
-		public function read_staff()
-		{
-			$staff = $this->Operations_Model->fetch_all_staff();
-			$data = array();
-			$data['staff'] = $staff;
-
-			$this->load->view('layouts/header');
-			$this->load->view('layouts/sidebar');
-			$this->load->view('list_staff', $data);
-			$this->load->view('layouts/footer');
-		}
-
 		public function update_staff($staff_id)
 		{
 			$staff = $this->Operations_Model->fetch_single_staff($staff_id);
@@ -80,7 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			{
 				$this->load->view('layouts/header');
 				$this->load->view('layouts/sidebar');
-				$this->load->view('update_staff', $data);
+				$this->load->view('staff/update_staff', $data);
 				$this->load->view('layouts/footer');
 			}
 			else
@@ -98,7 +107,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->session->set_flashdata('success', 'Staff Update Successfully');
 				redirect(base_url('Operations/read_staff'));
 			}
+		}
 
+		public function delete_staff($staff_id)
+		{
+			$staff = $this->Operations_Model->fetch_single_staff($staff_id);
+			
+			if(empty($staff))
+			{
+				$this->session->set_flashdata('error', 'Record Unavailable to Delete');
+				redirect(base_url('Operations/read_staff'));
+			}
+			else
+			{
+				$this->Operations_Model->delete_staff($staff_id);
+				$this->session->set_flashdata('success', 'Record Deleted Successfully');
+				redirect(base_url('Operations/read_staff'));
+			}
+		}
+
+		public function read_branch()
+		{
+			$this->load->view('layouts/header');
+			$this->load->view('layouts/sidebar');
+			$this->load->view('branch/list_branch');
+			$this->load->view('layouts/footer');
+		}
+
+		public function create_branch()
+		{
+			$this->load->view('layouts/header');
+			$this->load->view('layouts/sidebar');
+			$this->load->view('branch/create_branch');
+			$this->load->view('layouts/footer');
 		}
 
 	}
