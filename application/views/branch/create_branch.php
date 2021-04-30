@@ -56,32 +56,30 @@
                 <option value="1">Krishna Nagar</option>
                 <option value="2">Arjun Nagar</option>
               </select>
-              <div class="text-danger"><?php echo form_error('business_gst'); ?></div>
+              <div class="text-danger"><?php echo form_error('branch_area'); ?></div>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group col-md">
-              <label for="inputAddress">Landline #</label>
-              <input type="text" name="landline_no" class="form-control" id="inputAddress">
-              <div class="text-danger"><?php echo form_error('landline_no'); ?></div>
+              <label for="inputCont1">Landline #</label>
+              <input type="text" name="branch_landline" class="form-control" id="inputCont1">
+              <div class="text-danger"><?php echo form_error('branch_landline'); ?></div>
             </div>
             
             <div class="form-group col-md">
-              <label for="selectArea">Mobile #</label>
-              <input type="text" name="mobile_no" class="form-control" id="inputAddress">
-              <div class="text-danger"><?php echo form_error('mobile_no'); ?></div>
+              <label for="inputCont2">Mobile #</label>
+              <input type="text" name="branch_mobile" class="form-control" id="inputCont2">
+              <div class="text-danger"><?php echo form_error('branch_mobile'); ?></div>
             </div>
             </div>
           </div>
-
-        </div>
         <div class="card-footer">
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       <?php echo form_close(); ?>
-
     </div>
     <!-- /.card -->
+  </div>
 </div>
 <!-- /.content -->

@@ -33,4 +33,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->delete('tbl_staff');
 		}
 
+		public function create_branch($formArray)
+		{
+			$this->db->insert('tbl_branch', $formArray);
+		}
+
+		public function fetch_all_branch()
+		{
+			return $branch = $this->db->get('tbl_branch')->result();
+		}
+
 	}
