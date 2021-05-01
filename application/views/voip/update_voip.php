@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Add VoIP #</h1>
+        <h1 class="m-0">Edit VoIP #</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -25,19 +25,19 @@
       <!-- /.card-header -->
 
       <!-- form start -->
-      <?php echo form_open('Operations/create_voip'); ?>
+      <?php echo form_open('Operations/update_voip/' . $voip->voip_id); ?>
         <div class="card-body">
           
           <div class="form-row">
             <div class="form-group col-md">
               <label for="inputVoip">VoIP #</label>
-              <input type="text" name="voip_no" class="form-control" id="inputVoip">
+              <input type="text" name="voip_no" class="form-control" value="<?php echo $voip->voip_no; ?>" id="inputVoip">
               <div class="text-danger"><?php echo form_error('voip_no'); ?></div>
             </div>
             
             <div class="form-group col-md">
               <label for="inputVoipDesc">VoIP Description</label>
-              <input type="text" name="voip_desc" class="form-control" id="inputVoipDesc">
+              <input type="text" name="voip_desc" class="form-control" value="<?php echo $voip->voip_desc; ?>" id="inputVoipDesc">
               <div class="text-danger"><?php echo form_error('voip_desc'); ?></div>
             </div>
           </div>
@@ -45,13 +45,13 @@
           <div class="form-row">
             <div class="form-group col-md">
               <label for="inputUserID">User ID</label>
-              <input type="text" name="user_id" class="form-control" id="inputUserID">
+              <input type="text" name="user_id" class="form-control" value="<?php echo $voip->user_id; ?>" id="inputUserID">
               <div class="text-danger"><?php echo form_error('user_id'); ?></div>
             </div>
             
             <div class="form-group col-md">
               <label for="inputPass">Password</label>
-              <input type="text" name="password" class="form-control" id="inputPass">
+              <input type="text" name="password" class="form-control" value="<?php echo $voip->password; ?>" id="inputPass">
               <div class="text-danger"><?php echo form_error('password'); ?></div>
             </div>
           </div>
@@ -59,13 +59,13 @@
           <div class="form-row">
             <div class="form-group col-md">
               <label for="inputVendor">Vendor Name</label>
-              <input type="text" name="vendor_name" class="form-control" id="inputVendor">
+              <input type="text" name="vendor_name" class="form-control" value="<?php echo $voip->vendor_name; ?>" id="inputVendor">
               <div class="text-danger"><?php echo form_error('vendor_name'); ?></div>
             </div>
             
             <div class="form-group col-md">
               <label for="inputVenRate">Vendor Rate</label>
-              <input type="number" name="vendor_rate" class="form-control" id="inputVenRate">
+              <input type="number" name="vendor_rate" class="form-control" value="<?php echo $voip->vendor_rate; ?>" id="inputVenRate">
               <div class="text-danger"><?php echo form_error('vendor_rate'); ?></div>
             </div>
           </div>

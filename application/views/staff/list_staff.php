@@ -20,15 +20,11 @@
   <div class="container">
 
     <?php $success = $this->session->userdata('success'); if($success != ""){ ?>
-
       <div class="alert alert-success"><?php echo $success; ?></div>
-
     <?php } ?>
 
     <?php $error = $this->session->userdata('error'); if($error != ""){ ?>
-
       <div class="alert alert-danger"><?php echo $error; ?></div>
-
     <?php } ?>
 
     <div class="card">
