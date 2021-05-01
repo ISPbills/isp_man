@@ -251,4 +251,83 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 
+		public function update_area($area_id)
+		{
+			$area = $this->Operations_Model->fetch_single_area($area_id);
+			$data = array();
+			$data['area'] = $area;
+
+			$this->form_validation->set_rules('area_name', 'Area Name', 'required');
+			$this->form_validation->set_rules('area_district', 'Area District', 'required');
+			$this->form_validation->set_rules('area_city', 'Area City', 'required');
+			$this->form_validation->set_rules('area_state', 'Area State', 'required');
+			$this->form_validation->set_rules('area_pin', 'Area Pin Code', 'required');
+			$this->form_validation->set_rules('area_country', 'Area Country', 'required');
+
+			if($this->form_validation->run() == FALSE)
+			{
+				$this->load->view('layouts/header');
+				$this->load->view('layouts/sidebar');
+				$this->load->view('area/update_area', $data);
+				$this->load->view('layouts/footer');
+			}
+			else
+			{
+				$formArray = array();
+				$formArray['area_name'] = $this->input->post('area_name');
+				$formArray['area_district'] = $this->input->post('area_district');
+				$formArray['area_city'] = $this->input->post('area_city');
+				$formArray['area_state'] = $this->input->post('area_state');
+				$formArray['area_pin'] = $this->input->post('area_pin');
+				$formArray['area_country'] = $this->input->post('area_country');
+				
+				$this->Operations_Model->update_area($area_id, $formArray);
+				$this->session->set_flashdata('success', 'Area Updated Successfully');
+				redirect(base_url('Operations/read_area'));				
+			}
+		}
+
+		public function delete_area($area_id)
+		{
+			$area = $this->Operations_Model->fetch_single_area($area_id);
+			
+			if(empty($area))
+			{
+				$this->session->set_flashdata('error', 'Record Unavailable to Delete');
+				redirect(base_url('Operations/read_area'));
+			}
+			else
+			{
+				$this->Operations_Model->delete_area($area_id);
+				$this->session->set_flashdata('success', 'Record Deleted Successfully');
+				redirect(base_url('Operations/read_area'));
+			}
+		}
+
+		public function read_voip()
+		{
+			$this->load->view('layouts/header');
+			$this->load->view('layouts/sidebar');
+			$this->load->view('voip/list_voip');
+			$this->load->view('layouts/footer');
+		}
+
+		public function create_voip()
+		{
+			$this->form_validation->set_rules('voip_no', 'VoIP #', 'required | is_unique[tbl_voip.voip_no]');
+			$this->form_validation->set_rules('voip_desc', 'VoIP Description', 'required');
+			$this->form_validation->set_rules('user_id', 'User ID', 'required');
+			$this->form_validation->set_rules('password', 'Password', 'required');
+			$this->form_validation->set_rules('vendor_name', 'Vendor Name', 'required');
+			$this->form_validation->set_rules('vendor_rate', 'Vendor Rate', 'required');
+
+			if($this->form_validation->run() == FALSE)
+			{
+				$this->load->view('layouts/header');
+				$this->load->view('layouts/sidebar');
+				$this->load->view('voip/create_voip');
+				$this->load->view('layouts/footer');
+			}
+		}
+
 	}

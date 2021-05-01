@@ -49,6 +49,20 @@
             </li>
 
             <li class="nav-item">
+              <a href="<?php echo base_url('Operations/read_internet'); ?>" class="nav-link">
+                <i class="fas fa-wifi nav-icon"></i>
+                <p>Internet Setting</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="<?php echo base_url('Operations/read_voip'); ?>" class="nav-link">
+                <i class="fas fa-phone-alt nav-icon"></i>
+                <p>VoIP Setting</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
               <a href="<?php echo base_url('Operations/read_staff'); ?>" class="nav-link">
                 <i class="fas fa-user-cog nav-icon"></i>
                 <p>Staff Setting</p>
