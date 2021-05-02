@@ -115,4 +115,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $net = $this->db->get('tbl_internet')->result();
 		}
 
+		public function fetch_single_internet_plan($plan_id)
+		{
+			$this->db->where('plan_id', $plan_id);
+			return $net = $this->db->get('tbl_internet')->row();
+		}
+
+		public function update_internet($plan_id, $formArray)
+		{
+			$this->db->where('plan_id', $plan_id);
+			$this->db->update('tbl_internet', $formArray);
+		}
+
+		public function delete_internet($plan_id)
+		{
+			$this->db->where('plan_id', $plan_id);
+			$this->db->delete('tbl_internet');
+		}
+
 	}
