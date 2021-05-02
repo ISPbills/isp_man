@@ -105,4 +105,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->update('tbl_voip', $formArray);
 		}
 
+		public function create_internet($formArray)
+		{
+			$this->db->insert('tbl_internet', $formArray);
+		}
+
+		public function fetch_all_internet_plan()
+		{
+			return $net = $this->db->get('tbl_internet')->result();
+		}
+
 	}

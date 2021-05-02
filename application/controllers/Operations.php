@@ -384,4 +384,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 
+		public function read_internet()
+		{
+
+			$net = $this->Operations_Model->fetch_all_internet_plan();
+			$data['net'] = array();
+			$data['net'] = $net;
+
+			$this->load->view('layouts/header');
+			$this->load->view('layouts/sidebar');
+			$this->load->view('internet/list_internet', $data);
+			$this->load->view('layouts/footer');
+		}
+
+		public function create_internet()
+		{
+			$this->form_validation->set_rules('plan_name', 'Plan Name', 'required');
+			$this->form_validation->set_rules('plan_desc', 'Plan Description', 'required');
+			$this->form_validation->set_rules('vendor_name', 'Vendor Rate', 'required');
+			$this->form_validation->set_rules('vendor_rate', 'Vendor Rate', 'required');
+
+			if($this->form_validation->run() == FALSE)
+			{
+				$this->load->view('layouts/header');
+				$this->load->view('layouts/sidebar');
+				$this->load->view('internet/create_internet');
+				$this->load->view('layouts/footer');
+			}
+			else
+			{
+				$formArray = array();
+				$formArray['plan_name'] = $this->input->post('plan_name');
+				$formArray['plan_desc'] = $this->input->post('plan_desc');
+				$formArray['vendor_name'] = $this->input->post('vendor_name');
+				$formArray['vendor_rate'] = $this->input->post('vendor_rate');
+
+				$this->Operations_Model->create_internet($formArray);
+				$this->session->set_flashdata('success', 'Internet Plan Added Successfully');
+				redirect(base_url('Operations/read_internet'));
+			}
+
+		}
+
 	}
