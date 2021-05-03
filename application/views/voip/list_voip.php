@@ -29,7 +29,7 @@
 
     <div class="card">
       <div class="card-header">
-        <a href="<?php echo base_url('Operations/create_voip'); ?>" class="btn btn-sm btn-warning">Add VoIP</a>
+        <a href="<?php echo base_url('Operations/create_voip'); ?>" class="btn btn-sm btn-warning">Add VoIP #</a>
         <div class="card-tools">
           <div class="input-group input-group-sm" style="width: 150px;">
             <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
@@ -45,7 +45,7 @@
       <!-- /.card-header -->
 
       <div class="card-body table-responsive p-0">
-        <table class="table table-hover text-center table-bordered table-sm table-head-fixed text-nowrap">
+        <table id="demotable1" class="table table-hover text-center table-bordered table-sm table-head-fixed text-nowrap">
           <thead>
             <tr>
               <th>VoIP #</th>
