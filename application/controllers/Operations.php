@@ -474,4 +474,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 
+		public function read_user()
+		{
+			$this->load->view('layouts/header');
+			$this->load->view('layouts/sidebar');
+			$this->load->view('user/list_user');
+			$this->load->view('layouts/footer');
+		}
+
 	}
