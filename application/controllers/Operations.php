@@ -482,4 +482,52 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->load->view('layouts/footer');
 		}
 
+		public function create_user()
+		{
+			$this->form_validation->set_rules('username', 'Username', 'required');
+			$this->form_validation->set_rules('first_name', 'First Name', 'required');
+			$this->form_validation->set_rules('last_name', 'Last Name', 'required');
+			$this->form_validation->set_rules('contact_no', 'Contact #', 'required');
+			$this->form_validation->set_rules('email', 'Email Address', 'required');
+			$this->form_validation->set_rules('bill_address', 'Billing Address', 'required');
+			$this->form_validation->set_rules('install_address', 'Installation Address', 'required');
+			$this->form_validation->set_rules('area_id', 'Area', 'required');
+			$this->form_validation->set_rules('user_status', 'User Status', 'required');
+			$this->form_validation->set_rules('connection_type', 'Connection Type', 'required');
+
+			if($this->form_validation->run() == FALSE)
+			{
+				$this->load->view('layouts/header');
+				$this->load->view('layouts/sidebar');
+				$this->load->view('user/create_user');
+				$this->load->view('layouts/footer');
+			}
+			else
+			{
+				$formArray = array();
+				$formArray['username'] = $this->input->post('username');
+				$formArray['first_name'] = $this->input->post('first_name');
+				$formArray['last_name'] = $this->input->post('last_name');
+				$formArray['contact_no'] = $this->input->post('contact_no');
+				$formArray['email'] = $this->input->post('email');
+				$formArray['bill_address'] = $this->input->post('bill_address');
+				$formArray['install_address'] = $this->input->post('install_address');
+				$formArray['area_id'] = $this->input->post('area_id');
+				$formArray['user_status'] = $this->input->post('user_status');
+				$formArray['connection_type'] = $this->input->post('connection_type');
+
+				$this->Operations_Model->create_user($formArray);
+				$this->session->set_flashdata('success', 'User Added Successfully');
+				redirect(base_url('Operations/manage_user_plan'));
+			}
+		}
+
+		public function manage_user_plan()
+		{
+			$this->load->view('layouts/header');
+			$this->load->view('layouts/sidebar');
+			$this->load->view('user/manage_plan');
+			$this->load->view('layouts/footer');
+		}
+
 	}

@@ -133,4 +133,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->delete('tbl_internet');
 		}
 
+		public function create_user($formArray)
+		{
+			$this->db->insert('tbl_user', $formArray);
+		}
+
 	}
