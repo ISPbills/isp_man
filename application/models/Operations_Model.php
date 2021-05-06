@@ -138,4 +138,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->insert('tbl_user', $formArray);
 		}
 
+		public function fetch_all_user()
+		{
+			return $user = $this->db->get('tbl_user')->result();
+		}
+
 	}
