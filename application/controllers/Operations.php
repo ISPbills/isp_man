@@ -488,6 +488,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function create_user()
 		{
+			// For Area Dropdown
+			$area = $this->Operations_Model->fetch_all_area();
+			$data = array();
+			$data['area'] = $area;
+
 			$this->form_validation->set_rules('username', 'Username', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
 			$this->form_validation->set_rules('first_name', 'First Name', 'required');
@@ -504,7 +509,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			{
 				$this->load->view('layouts/header');
 				$this->load->view('layouts/sidebar');
-				$this->load->view('user/create_user');
+				$this->load->view('user/create_user', $data);
 				$this->load->view('layouts/footer');
 			}
 			else

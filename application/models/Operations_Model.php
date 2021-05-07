@@ -12,7 +12,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function fetch_all_staff()
 		{
-			return $staff = $this->db->get('tbl_staff')->result();
+			$this->db->select('*');
+			$this->db->from('tbl_staff');
+			$this->db->join('tbl_branch', 'tbl_branch.branch_id = tbl_staff.branch_id', 'left');
+			$staff = $this->db->get();
+			return $staff->result();
 		}
 
 		public function fetch_single_staff($staff_id)
@@ -140,7 +144,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function fetch_all_user()
 		{
-			return $user = $this->db->get('tbl_user')->result();
+			$this->db->select('*');
+			$this->db->from('tbl_user');
+			$this->db->join('tbl_area', 'tbl_area.area_id = tbl_user.area_id', 'left');
+			$user = $this->db->get();
+			return $user->result();
 		}
 
 	}

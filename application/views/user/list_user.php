@@ -55,7 +55,6 @@
               <th>Address</th>
               <th>Area</th>
               <th>Status</th>
-              <th>Conn. Type</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -67,9 +66,8 @@
               <td><?php echo $row->contact_no; ?></td>
               <td><?php echo $row->email; ?></td>
               <td><?php echo $row->bill_address; ?></td>
-              <td><?php echo $row->area_id; ?></td>
-              <td><?php echo $row->user_status; ?></td>
-              <td><?php echo $row->connection_type; ?></td>
+              <td><?php echo $row->area_name; ?></td>
+              <td><?php echo ($row->user_status == 1) ? '<span class="badge badge-success">Active</span>' : '<span class="badge badge-danger">Inactive</span>'; ?></td>
               <td>
                 <div class="dropdown">
                   <a class="btn btn-secondary btn-xs dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -77,14 +75,13 @@
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="<?php echo base_url('Operations/update_user/' . $row->user_id); ?>">Edit</a>
-                    <a class="dropdown-item" href="<?php echo base_url('Operations/delete_user/' . $row->user_id); ?>">Delete</a>
                   </div>
                 </div>
               </td>
             </tr>
           <?php }} else { ?>
             <tr>
-              <td colspan="9">No record found!</td>
+              <td colspan="8">No record(s) found!</td>
             </tr>
           <?php } ?>
           </tbody>

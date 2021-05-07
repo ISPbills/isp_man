@@ -65,7 +65,7 @@
               <td><?php echo $row->last_name; ?></td>
               <td><?php echo $row->contact_no; ?></td>
               <td><?php echo $row->staff_role; ?></td>
-              <td><?php echo $row->branch_id; ?></td>
+              <td><?php echo $row->branch_name; ?></td>
               <td>
                 <div class="dropdown">
                   <a class="btn btn-secondary btn-xs dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

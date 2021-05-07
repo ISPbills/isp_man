@@ -89,8 +89,9 @@
               <label for="inputArea">Area</label>
               <select name="area_id" class="custom-select" id="inputArea">
                 <option value="">Choose...</option>
-                <option value="1">Krishna Nagar</option>
-                <option value="2">Arjun Nagar</option>
+                  <?php foreach ($area as $row) : ?>
+                      <option value="<?php echo $row->area_id; ?>"><?php echo $row->area_name; ?></option>
+                  <?php endforeach; ?>
               </select>
               <div class="text-danger"><?php echo form_error('area_id'); ?></div>
             </div>
@@ -99,8 +100,8 @@
               <label for="inputConnType">Connection Type</label>
               <select name="connection_type" class="custom-select" id="inputConnType">
                 <option value="">Choose...</option>
-                <option value="1">Cat5 Connection</option>
-                <option value="2">Fiber Connection</option>
+                <option value="Cat5 Connection">Cat5 Connection</option>
+                <option value="Fiber Connection">Fiber Connection</option>
               </select>
               <div class="text-danger"><?php echo form_error('connection_type'); ?></div>
             </div>
