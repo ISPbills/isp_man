@@ -19,17 +19,9 @@
 <div class="content">
   <div class="container">
 
-    <?php $success = $this->session->userdata('success'); if($success != ""){ ?>
-      <div class="alert alert-success"><?php echo $success; ?></div>
-    <?php } ?>
-
-    <?php $error = $this->session->userdata('error'); if($error != ""){ ?>
-      <div class="alert alert-danger"><?php echo $error; ?></div>
-    <?php } ?>
-
     <div class="card">
       <div class="card-header">
-        <a href="<?php echo base_url('Operations/create_internet'); ?>" class="btn btn-sm btn-warning">Add Internet Plan</a>
+        <a href="<?php echo base_url('Operations/create_internet'); ?>" class="btn btn-sm btn-warning">Add Plan</a>
         <div class="card-tools">
           <div class="input-group input-group-sm" style="width: 150px;">
             <input type="text" name="table_search" class="form-control float-right" placeholder="Search">

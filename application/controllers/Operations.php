@@ -140,10 +140,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function create_branch()
 		{
+			// For Area Dropdown
+			$area = $this->Operations_Model->fetch_all_area();
+			$data = array();
+			$data['area'] = $area;
+
 			$this->form_validation->set_rules('branch_name', 'Branch Name', 'required');
 			$this->form_validation->set_rules('business_gst', '15 digit GST Number', 'required');
 			$this->form_validation->set_rules('branch_address', 'Branch Address', 'required');
-			$this->form_validation->set_rules('branch_area', 'Branch Area', 'required');
+			$this->form_validation->set_rules('area_id', 'Branch Area', 'required');
 			$this->form_validation->set_rules('branch_landline', 'Landline #', 'required');
 			$this->form_validation->set_rules('branch_mobile', 'Mobile #', 'required');
 
@@ -151,7 +156,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			{
 				$this->load->view('layouts/header');
 				$this->load->view('layouts/sidebar');
-				$this->load->view('branch/create_branch');
+				$this->load->view('branch/create_branch', $data);
 				$this->load->view('layouts/footer');
 			}
 			else
@@ -160,7 +165,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$formArray['branch_name'] = $this->input->post('branch_name');
 				$formArray['business_gst'] = $this->input->post('business_gst');
 				$formArray['branch_address'] = $this->input->post('branch_address');
-				$formArray['branch_area'] = $this->input->post('branch_area');
+				$formArray['area_id'] = $this->input->post('area_id');
 				$formArray['branch_landline'] = $this->input->post('branch_landline');
 				$formArray['branch_mobile'] = $this->input->post('branch_mobile');
 
@@ -531,11 +536,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				$this->Operations_Model->create_user($formArray);
 				$this->session->set_flashdata('success', 'User Added Successfully');
-				redirect(base_url('Operations/manage_user_plan/' . $this->db->insert_id()));
+				redirect(base_url('Operations/manage_plan/' . $this->db->insert_id()));
 			}
 		}
 
-		public function manage_user_plan()
+		public function manage_plan()
 		{
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');

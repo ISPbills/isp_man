@@ -15,7 +15,7 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      Anything you want
+      <span><b>Version</b> 3.0 (Red Velvet)</span>
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2019-<?php echo date('Y'); ?> <a href="#">Endeavour Technologies</a>.</strong> All rights reserved.
@@ -31,6 +31,20 @@
 <script src="<?php echo base_url(); ?>assets/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/js/adminlte.min.js"></script>
+<!-- Toastr Js -->
+<script src="<?php echo base_url(); ?>assets/js/toastr.min.js"></script>
+
+<?php $success = $this->session->userdata('success'); if($success != ""){ ?>
+  <script type="text/javascript">
+    toastr["success"]("<?php echo $success; ?>")
+  </script>
+<?php } ?>
+
+<?php $error = $this->session->userdata('error'); if($error != ""){ ?>
+  <script type="text/javascript">
+    toastr["error"]("<?php echo $error; ?>")
+  </script>
+<?php } ?>
 
 <!-- <script>
 // JavaScript Form Validation

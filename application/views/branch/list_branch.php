@@ -19,18 +19,6 @@
 <div class="content">
   <div class="container">
 
-    <?php $success = $this->session->userdata('success'); if($success != ""){ ?>
-
-      <div class="alert alert-success"><?php echo $success; ?></div>
-
-    <?php } ?>
-
-    <?php $error = $this->session->userdata('error'); if($error != ""){ ?>
-
-      <div class="alert alert-danger"><?php echo $error; ?></div>
-
-    <?php } ?>
-
     <div class="card">
       <div class="card-header">
         <a href="<?php echo base_url('Operations/create_branch'); ?>" class="btn btn-sm btn-warning">Add Branch</a>
@@ -67,7 +55,7 @@
               <td><?php echo $row->branch_name; ?></td>
               <td><?php echo $row->business_gst; ?></td>
               <td><?php echo $row->branch_address; ?></td>
-              <td><?php echo $row->branch_area; ?></td>
+              <td><?php echo $row->area_name; ?></td>
               <td><?php echo $row->branch_landline; ?></td>
               <td><?php echo $row->branch_mobile; ?></td>
               <td>

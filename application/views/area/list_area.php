@@ -19,18 +19,6 @@
 <div class="content">
   <div class="container">
 
-    <?php $success = $this->session->userdata('success'); if($success != ""){ ?>
-
-      <div class="alert alert-success"><?php echo $success; ?></div>
-
-    <?php } ?>
-
-    <?php $error = $this->session->userdata('error'); if($error != ""){ ?>
-
-      <div class="alert alert-danger"><?php echo $error; ?></div>
-
-    <?php } ?>
-
     <div class="card">
       <div class="card-header">
         <a href="<?php echo base_url('Operations/create_area'); ?>" class="btn btn-sm btn-warning">Add Area</a>

@@ -19,14 +19,6 @@
 <div class="content">
   <div class="container">
 
-    <?php $success = $this->session->userdata('success'); if($success != ""){ ?>
-      <div class="alert alert-success"><?php echo $success; ?></div>
-    <?php } ?>
-
-    <?php $error = $this->session->userdata('error'); if($error != ""){ ?>
-      <div class="alert alert-danger"><?php echo $error; ?></div>
-    <?php } ?>
-
     <div class="card">
       <div class="card-header">
         <a href="<?php echo base_url('Operations/create_user'); ?>" class="btn btn-sm btn-warning">Add User</a>
@@ -74,7 +66,7 @@
                     Action
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="<?php echo base_url('Operations/update_user/' . $row->user_id); ?>">Edit</a>
+                    <a class="dropdown-item" href="<?php echo base_url('Operations/manage_plan/' . $row->user_id); ?>">Assign Plans</a>
                   </div>
                 </div>
               </td>

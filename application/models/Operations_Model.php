@@ -44,7 +44,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function fetch_all_branch()
 		{
-			return $branch = $this->db->get('tbl_branch')->result();
+			$this->db->select('*');
+			$this->db->from('tbl_branch');
+			$this->db->join('tbl_area', 'tbl_area.area_id = tbl_branch.area_id', 'left');
+			$branch = $this->db->get();
+			return $branch->result();
 		}
 
 		public function fetch_single_branch($branch_id)
