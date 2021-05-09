@@ -23,9 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function read_staff()
 		{
-			$staff = $this->Operations_Model->fetch_all_staff();
 			$data = array();
-			$data['staff'] = $staff;
+			$data['staff'] = $this->Operations_Model->fetch_all_staff();
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
@@ -35,9 +34,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function create_staff()
 		{
-			$branch = $this->Operations_Model->fetch_all_branch();
 			$data = array();
-			$data['branch'] = $branch;
+			$data['branch'] = $this->Operations_Model->fetch_all_branch();
 
 			// Validation on Create
 			$this->form_validation->set_rules('username', 'Username', 'required');
@@ -76,9 +74,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function update_staff($staff_id)
 		{
-			$staff = $this->Operations_Model->fetch_single_staff($staff_id);
 			$data = array();
-			$data['staff'] = $staff;
+			$data['staff'] = $this->Operations_Model->fetch_single_staff($staff_id);
 
 			// Validation on Update
 			$this->form_validation->set_rules('username', 'Username', 'required');
@@ -131,9 +128,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function read_branch()
 		{
-			$branch = $this->Operations_Model->fetch_all_branch();
 			$data = array();
-			$data['branch'] = $branch;
+			$data['branch'] = $this->Operations_Model->fetch_all_branch();
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
@@ -144,9 +140,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function create_branch()
 		{
 			// For Area Dropdown
-			$area = $this->Operations_Model->fetch_all_area();
 			$data = array();
-			$data['area'] = $area;
+			$data['area'] = $this->Operations_Model->fetch_all_area();
 
 			$this->form_validation->set_rules('branch_name', 'Branch Name', 'required');
 			$this->form_validation->set_rules('business_gst', '15 digit GST Number', 'required');
@@ -181,9 +176,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function update_branch($branch_id)
 		{
-			$branch = $this->Operations_Model->fetch_single_branch($branch_id);
 			$data = array();
-			$data['branch'] = $branch;
+			$data['branch'] = $this->Operations_Model->fetch_single_branch($branch_id);
 
 			$this->form_validation->set_rules('branch_name', 'Branch Name', 'required');
 			$this->form_validation->set_rules('business_gst', '15 digit GST Number', 'required');
@@ -217,9 +211,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function read_area()
 		{
-			$area = $this->Operations_Model->fetch_all_area();
 			$data = array();
-			$data['area'] = $area;
+			$data['area'] = $this->Operations_Model->fetch_all_area();
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
@@ -261,9 +254,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function update_area($area_id)
 		{
-			$area = $this->Operations_Model->fetch_single_area($area_id);
 			$data = array();
-			$data['area'] = $area;
+			$data['area'] = $this->Operations_Model->fetch_single_area($area_id);
 
 			$this->form_validation->set_rules('area_name', 'Area Name', 'required');
 			$this->form_validation->set_rules('area_district', 'Area District', 'required');
@@ -314,9 +306,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function read_voip()
 		{
-			$voip = $this->Operations_Model->fetch_all_voip();
 			$data = array();
-			$data['voip'] = $voip;
+			$data['voip'] = $this->Operations_Model->fetch_all_voip();
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
@@ -358,9 +349,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function update_voip($voip_id)
 		{
-			$voip = $this->Operations_Model->fetch_single_voip($voip_id);
 			$data = array();
-			$data['voip'] = $voip;
+			$data['voip'] = $this->Operations_Model->fetch_single_voip($voip_id);
 
 			$this->form_validation->set_rules('voip_no', 'VoIP', 'required|is_unique[tbl_voip.voip_no]');
 			$this->form_validation->set_rules('voip_desc', 'VoIP Description', 'required');
@@ -394,10 +384,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function read_internet()
 		{
-
-			$net = $this->Operations_Model->fetch_all_internet_plan();
 			$data['net'] = array();
-			$data['net'] = $net;
+			$data['net'] = $this->Operations_Model->fetch_all_internet_plan();
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
@@ -435,9 +423,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function update_internet($plan_id)
 		{
-			$net = $this->Operations_Model->fetch_single_internet_plan($plan_id);
 			$data = array();
-			$data['net'] = $net;
+			$data['net'] = $this->Operations_Model->fetch_single_internet_plan($plan_id);
 
 			$this->form_validation->set_rules('plan_name', 'Plan Name', 'required');
 			$this->form_validation->set_rules('plan_desc', 'Plan Description', 'required');
@@ -484,9 +471,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function read_user()
 		{
-			$user = $this->Operations_Model->fetch_all_user();
 			$data = array();
-			$data['user'] = $user;
+			$data['user'] = $this->Operations_Model->fetch_all_user();
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
@@ -497,9 +483,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function create_user()
 		{
 			// For Area Dropdown
-			$area = $this->Operations_Model->fetch_all_area();
 			$data = array();
-			$data['area'] = $area;
+			$data['area'] = $this->Operations_Model->fetch_all_area();
 
 			$this->form_validation->set_rules('username', 'Username', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
@@ -545,14 +530,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function manage_plan($user_id)
 		{
-			$user = $this->Operations_Model->fetch_profile_detail($user_id);
 			$data = array();
-			$data['user'] = $user;
+			$data['user'] = $this->Operations_Model->fetch_profile_detail($user_id);
+			$data['net'] = $this->Operations_Model->fetch_all_internet_plan();
+			$data['voip'] = $this->Operations_Model->fetch_all_voip();
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
 			$this->load->view('user/profile_base', $data);
-			$this->load->view('user/profile_manage_plan');
+			$this->load->view('user/profile_plan_add');
 			$this->load->view('layouts/footer');
 		}
 
