@@ -37,7 +37,7 @@
             
             <div class="form-group col-md">
               <label for="inputGST">District</label>
-              <input type="text" name="area_district" class="form-control" id="inputGST">
+              <input type="text" name="area_district" class="form-control" value="South-West Delhi" id="inputGST">
               <div class="text-danger"><?php echo form_error('area_district'); ?></div>
             </div>
           </div>
@@ -45,13 +45,13 @@
           <div class="form-row">
             <div class="form-group col-md">
               <label for="inputBranch">City</label>
-              <input type="text" name="area_city" class="form-control" id="inputBranch">
+              <input type="text" name="area_city" class="form-control" value="New Delhi" id="inputBranch">
               <div class="text-danger"><?php echo form_error('area_city'); ?></div>
             </div>
             
             <div class="form-group col-md">
               <label for="inputGST">State</label>
-              <input type="text" name="area_state" class="form-control" id="inputGST">
+              <input type="text" name="area_state" class="form-control" value="Delhi" id="inputGST">
               <div class="text-danger"><?php echo form_error('area_state'); ?></div>
             </div>
           </div>
@@ -59,13 +59,13 @@
           <div class="form-row">
             <div class="form-group col-md">
               <label for="inputBranch">Pin Code</label>
-              <input type="text" name="area_pin" class="form-control" id="inputBranch">
+              <input type="text" name="area_pin" class="form-control" value="110029" id="inputBranch">
               <div class="text-danger"><?php echo form_error('area_pin'); ?></div>
             </div>
             
             <div class="form-group col-md">
               <label for="inputGST">Contry</label>
-              <input type="text" name="area_country" class="form-control" id="inputGST">
+              <input type="text" name="area_country" class="form-control" value="India" id="inputGST">
               <div class="text-danger"><?php echo form_error('area_country'); ?></div>
             </div>
           </div>

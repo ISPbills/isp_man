@@ -37,7 +37,7 @@
             
             <div class="form-group col-md">
               <label for="inputVoipDesc">VoIP Description</label>
-              <input type="text" name="voip_desc" class="form-control" id="inputVoipDesc">
+              <input type="text" name="voip_desc" class="form-control" value="Unlimited VoIP Calls" id="inputVoipDesc">
               <div class="text-danger"><?php echo form_error('voip_desc'); ?></div>
             </div>
           </div>

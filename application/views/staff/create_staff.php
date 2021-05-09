@@ -77,10 +77,11 @@
           <div class="form-row">
             <div class="form-group col-md">
               <label for="selectStore">Branch</label>
-              <select name="branch_id" class="custom-select" id="selectStore">
+              <select name="branch_id" class="custom-select" id="inputArea">
                 <option value="">Choose...</option>
-                <option value="1">Aalishan Cable</option>
-                <option value="2">Others</option>
+                  <?php foreach ($branch as $row) : ?>
+                      <option value="<?php echo $row->branch_id; ?>"><?php echo $row->branch_name; ?></option>
+                  <?php endforeach; ?>
               </select>
               <div class="text-danger"><?php echo form_error('branch_id'); ?></div>
             </div>

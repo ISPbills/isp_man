@@ -100,8 +100,8 @@
               <label for="inputConnType">Connection Type</label>
               <select name="connection_type" class="custom-select" id="inputConnType">
                 <option value="">Choose...</option>
+                <option value="Fiber Connection" selected="">Fiber Connection</option>
                 <option value="Cat5 Connection">Cat5 Connection</option>
-                <option value="Fiber Connection">Fiber Connection</option>
               </select>
               <div class="text-danger"><?php echo form_error('connection_type'); ?></div>
             </div>

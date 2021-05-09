@@ -37,7 +37,7 @@
 
             <div class="form-group col-md">
               <label for="inputDesc">Description</label>
-              <input type="text" name="plan_desc" class="form-control" id="inputDesc">
+              <input type="text" name="plan_desc" class="form-control" value="Unlimited + Peering" id="inputDesc">
               <div class="text-danger"><?php echo form_error('plan_desc'); ?></div>
             </div>
           </div>

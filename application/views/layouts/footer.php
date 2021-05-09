@@ -31,8 +31,10 @@
 <script src="<?php echo base_url(); ?>assets/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/js/adminlte.min.js"></script>
-<!-- Toastr Js -->
+<!-- Toastr -->
 <script src="<?php echo base_url(); ?>assets/js/toastr.min.js"></script>
+
+<!-- Notification Bulbs -->
 
 <?php $success = $this->session->userdata('success'); if($success != ""){ ?>
   <script type="text/javascript">
@@ -66,6 +68,14 @@
   }, false);
 })();
 </script> -->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#inputBillAdd').on('change', function(){
+      $('#inputInstAdd').val($(this).val());
+    });
+  });
+</script>
 
 </body>
 </html>

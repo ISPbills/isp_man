@@ -35,6 +35,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function create_staff()
 		{
+			$branch = $this->Operations_Model->fetch_all_branch();
+			$data = array();
+			$data['branch'] = $branch;
 
 			// Validation on Create
 			$this->form_validation->set_rules('username', 'Username', 'required');
@@ -49,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			{
 				$this->load->view('layouts/header');
 				$this->load->view('layouts/sidebar');
-				$this->load->view('staff/create_staff');
+				$this->load->view('staff/create_staff', $data);
 				$this->load->view('layouts/footer');
 			}
 			else
@@ -548,7 +551,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
-			$this->load->view('user/manage_plan', $data);
+			$this->load->view('user/profile_base', $data);
+			$this->load->view('user/profile_manage_plan');
 			$this->load->view('layouts/footer');
 		}
 
