@@ -540,11 +540,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 
-		public function manage_plan()
+		public function manage_plan($user_id)
 		{
+			$user = $this->Operations_Model->fetch_profile_detail($user_id);
+			$data = array();
+			$data['user'] = $user;
+
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
-			$this->load->view('user/manage_plan');
+			$this->load->view('user/manage_plan', $data);
 			$this->load->view('layouts/footer');
 		}
 

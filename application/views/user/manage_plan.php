@@ -28,15 +28,15 @@
                   <img class="profile-user-img img-fluid img-circle" src="<?php echo base_url(); ?>assets/img/avatar.png" alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">Nina Mcintire</h3>
+                <h3 class="profile-username text-center"><?php echo $user->first_name .' '. $user->last_name; ?></h3>
 
-                <p class="text-muted text-center">Software Engineer</p>
+                <p class="text-muted text-center">Username: <?php echo $user->username; ?></p>
 
               <div class="btn-group btn-block" role="group">
-                  <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                  <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
                   <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    <a class="dropdown-item" href="#">Dropdown link</a>
-                    <a class="dropdown-item" href="#">Dropdown link</a>
+                    <a class="dropdown-item" href="#">Renew Plan</a>
+                    <a class="dropdown-item" href="#">Update Profile</a>
                   </div>
                 </div>
               </div>
@@ -51,19 +51,11 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Education</strong>
+                <strong><i class="fas fa-map-marker-alt"></i> Address</strong>
 
-                <p class="text-muted">
-                  B.S. in Computer Science from the University of Tennessee at Knoxville
-                </p>
+                <p class="text-muted"><?php echo $user->bill_address .', '. $user->area_name; ?></p>
 
-                <hr>
-
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                <p class="text-muted">Malibu, California</p>
-
-                <hr>
+                  <hr>
 
                 <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
 
@@ -75,7 +67,7 @@
                   <span class="tag tag-primary">Node.js</span>
                 </p>
 
-                <hr>
+                  <hr>
 
                 <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
 

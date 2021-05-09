@@ -155,4 +155,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $user->result();
 		}
 
+		public function fetch_profile_detail($user_id)
+		{
+			$this->db->select('*');
+			$this->db->from('tbl_user');
+			$this->db->join('tbl_area', 'tbl_area.area_id = tbl_user.area_id', 'left');
+			$this->db->where('user_id', $user_id);
+			$user = $this->db->get();
+			return $user->row();
+		}
+
 	}
