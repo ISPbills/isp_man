@@ -1,82 +1,89 @@
       <div class="col-md">
-        <div class="card card-info">
-          <div class="card-header">
-            <h3 class="card-title"><i class="fas fa-wifi mr-1"></i>Internet Plan</h3>
+        <?php echo form_open('Operations/assign_plan/' . $user->user_id); ?>
+          <div class="card card-info">
+            <div class="card-header">
+              <h3 class="card-title"><i class="fas fa-wifi mr-1"></i>Internet Plan</h3>
+            </div>
+            <div class="card-body">
+              <div class="form-row">
+                <div class="form-group col-md">
+                  <label for="selectNetPlan">Internet Plan</label>
+                  <select name="plan_id" class="custom-select" id="selectNetPlan">
+                    <option value="">Choose...</option>
+                      <?php foreach ($net as $row) : ?>
+                          <option value="<?php echo $row->plan_id; ?>"><?php echo $row->plan_name.' - '.$row->vendor_name; ?></option>
+                      <?php endforeach; ?>
+                  </select>
+                  <div class="text-danger"><?php echo form_error('plan_id'); ?></div>
+                </div>
+                <div class="form-group col-md">
+                  <label for="inputPlanRate">Plan Rate</label>
+                  <input type="number" class="form-control" name="plan_rate" id="inputPlanRate">
+                  <div class="text-danger"><?php echo form_error('plan_rate'); ?></div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md">
+                  <label for="inputInstallDeposit">Installation Deposit</label>
+                  <input type="number" class="form-control" name="install_charge" id="inputInstallDeposit">
+                </div>
+                <div class="form-group col-md">
+                  <label for="inputInstallRef">Installation Refund</label>
+                  <input type="number" class="form-control" name="install_refund" id="inputInstallRef">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md">
+                  <label for="inputDevDep">Router Deposit</label>
+                  <input type="number" class="form-control" name="router_charge" id="inputDevDep">
+                </div>
+                <div class="form-group col-md">
+                  <label for="inputRouterRef">Router Refund</label>
+                  <input type="number" class="form-control" name="router_refund" id="inputRouterRef">
+                </div>
+              </div>
+            </div>
+            <!-- /.card-body -->
           </div>
-          <div class="card-body">
-            <div class="form-row">
-              <div class="form-group col-md">
-                <label for="inputName">Internet Plan</label>
-                <select name="plan_id" class="custom-select" id="inputArea">
-                  <option value="">Choose...</option>
-                    <?php foreach ($net as $row) : ?>
-                        <option value="<?php echo $row->plan_id; ?>"><?php echo $row->plan_name.' - '.$row->vendor_name; ?></option>
-                    <?php endforeach; ?>
-                </select>
+          <!-- /.card -->
+          <div class="card card-info">
+            <div class="card-header">
+              <h3 class="card-title"><i class="fas fa-phone-alt mr-1"></i>VoIP Plan</h3>
+            </div>
+            <div class="card-body">
+              <div class="form-row">
+                <div class="form-group col-md">
+                  <label for="selectVoipNo">VoIP #</label>
+                  <select name="voip_id" class="custom-select" id="selectVoipNo">
+                    <option value="">Choose...</option>
+                      <?php foreach ($voip as $row) : ?>
+                          <option value="<?php echo $row->voip_id; ?>"><?php echo $row->voip_no.' - '.$row->vendor_name; ?></option>
+                      <?php endforeach; ?>
+                  </select>
+                </div>
+                <div class="form-group col-md">
+                  <label for="inputVoipRate">Plan Rate</label>
+                  <input type="number" class="form-control" name="voip_rate" id="inputVoipRate">
+                </div>
               </div>
-              <div class="form-group col-md">
-                <label for="inputDescription">Plan Rate</label>
-                <input type="number" class="form-control" name="plan_rate">
+              <div class="form-row">
+                <div class="form-group col-md">
+                  <label for="inputSetDep">VoIP Set Deposit</label>
+                  <input type="number" class="form-control" name="voip_charge" id="inputSetDep">
+                </div>
+                <div class="form-group col-md">
+                  <label for="inputVoipSetRef">VoIP Set Refund</label>
+                  <input type="number" class="form-control" name="voip_refund" id="inputVoipSetRef">
+                </div>
               </div>
             </div>
-            <div class="form-row">
-              <div class="form-group col-md">
-                <label>Installation Deposit</label>
-                <input type="number" class="form-control" name="install_charge">
-              </div>
-              <div class="form-group col-md">
-                <label>Installation Refund</label>
-                <input type="number" class="form-control" name="install_refund">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md">
-                <label>Router Deposit</label>
-                <input type="number" class="form-control" name="install_charge">
-              </div>
-              <div class="form-group col-md">
-                <label>Router Refund</label>
-                <input type="number" class="form-control" name="install_refund">
-              </div>
-            </div>
-          </div>
-          <!-- /.card-body -->
-        </div>
-        <!-- /.card -->
-        <div class="card card-info">
-          <div class="card-header">
-            <h3 class="card-title"><i class="fas fa-phone-alt mr-1"></i>VoIP Plan</h3>
-          </div>
-          <div class="card-body">
-            <div class="form-row">
-              <div class="form-group col-md">
-                <label for="inputName">VoIP #</label>
-                <select name="voip_id" class="custom-select" id="inputArea">
-                  <option value="">Choose...</option>
-                    <?php foreach ($voip as $row) : ?>
-                        <option value="<?php echo $row->voip_id; ?>"><?php echo $row->voip_no.' - '.$row->vendor_name; ?></option>
-                    <?php endforeach; ?>
-                </select>
-              </div>
-              <div class="form-group col-md">
-                <label for="inputDescription">Plan Rate</label>
-                <input type="number" class="form-control" name="voip_rate">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md">
-                <label>VoIP Set Deposit</label>
-                <input type="number" class="form-control" name="install_charge">
-              </div>
-              <div class="form-group col-md">
-                <label>VoIP Set Refund</label>
-                <input type="number" class="form-control" name="install_refund">
-              </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+              <button class="btn btn-primary float-right" name="submit" type="submit">Submit</button>
             </div>
           </div>
-          <!-- /.card-body -->
-        </div>
-        <!-- /.card -->
+          <!-- /.card -->
+        <?php echo form_close(); ?>
       </div>
       <!-- /.col -->
 

@@ -524,11 +524,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				$this->Operations_Model->create_user($formArray);
 				$this->session->set_flashdata('success', 'User Added Successfully');
-				redirect(base_url('Operations/manage_plan/' . $this->db->insert_id()));
+				redirect(base_url('Operations/assign_plan/' . $this->db->insert_id()));
 			}
 		}
 
-		public function manage_plan($user_id)
+		public function assign_plan($user_id)
 		{
 			$data = array();
 			$data['title'] = 'Assign Plan';
@@ -536,11 +536,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data['net'] = $this->Operations_Model->fetch_all_internet_plan();
 			$data['voip'] = $this->Operations_Model->fetch_all_voip();
 
-			$this->load->view('layouts/header');
-			$this->load->view('layouts/sidebar');
-			$this->load->view('user/profile_base', $data);
-			$this->load->view('user/profile_plan_add');
-			$this->load->view('layouts/footer');
+			$this->form_validation->set_rules('plan_id', 'Internet Plan', 'required');
+			$this->form_validation->set_rules('plan_rate', 'Plan Rate', 'required');
+
+			if($this->form_validation->run() == FALSE)
+			{
+				$this->load->view('layouts/header');
+				$this->load->view('layouts/sidebar');
+				$this->load->view('user/profile_base', $data);
+				$this->load->view('user/profile_plan_add');
+				$this->load->view('layouts/footer');
+			}
+			else
+			{
+				echo 'success';
+			}
+
 		}
 
 	}

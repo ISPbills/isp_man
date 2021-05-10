@@ -66,7 +66,7 @@
                     Action
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="<?php echo base_url('Operations/manage_plan/' . $row->user_id); ?>">Assign Plans</a>
+                    <a class="dropdown-item" href="<?php echo base_url('Operations/assign_plan/' . $row->user_id); ?>">Assign Plans</a>
                   </div>
                 </div>
               </td>
