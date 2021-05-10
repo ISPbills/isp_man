@@ -531,6 +531,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function manage_plan($user_id)
 		{
 			$data = array();
+			$data['title'] = 'Assign Plan';
 			$data['user'] = $this->Operations_Model->fetch_profile_detail($user_id);
 			$data['net'] = $this->Operations_Model->fetch_all_internet_plan();
 			$data['voip'] = $this->Operations_Model->fetch_all_voip();
