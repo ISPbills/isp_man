@@ -23,6 +23,8 @@
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
       
+      <!-- Notifiation Bulbs Over Right Below -->
+
       <?php if($this->session->flashdata('message')){ ?>
         <div class="alert alert-danger"><?php echo $this->session->flashdata('message'); ?></div>
       <?php } ?>

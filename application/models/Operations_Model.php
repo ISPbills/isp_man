@@ -148,9 +148,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function fetch_all_user()
 		{
-			$this->db->select('*');
-			$this->db->from('tbl_user');
+			// Mock Query
+			// select * from tbl_services sr
+			// right join tbl_user us on us.user_id = sr.user_id
+			// left join tbl_internet it on it.plan_id = sr.plan_id
+			// left join tbl_voip vp on vp.voip_id = sr.voip_id
+			// left join tbl_area ar on ar.area_id = us.area_id
+			// group by us.user_id
+
+			$fields = array('');
+
+			$this->db->select('tbl_user.user_id');
+			$this->db->from('tbl_services');
+			$this->db->join('tbl_user', 'tbl_user.user_id = tbl_services.user_id', 'right');
+			$this->db->join('tbl_internet', 'tbl_internet.plan_id = tbl_services.plan_id', 'left');
+			$this->db->join('tbl_voip', 'tbl_voip.voip_id = tbl_services.voip_id', 'left');
 			$this->db->join('tbl_area', 'tbl_area.area_id = tbl_user.area_id', 'left');
+			$this->db->group_by('tbl_user.user_id');
 			$user = $this->db->get();
 			return $user->result();
 		}
@@ -163,6 +177,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->where('user_id', $user_id);
 			$user = $this->db->get();
 			return $user->row();
+		}
+
+		public function assign_plan($formArray)
+		{
+			$this->db->insert('tbl_services', $formArray);
 		}
 
 	}

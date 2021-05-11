@@ -549,9 +549,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			else
 			{
-				echo 'success';
-			}
+				$formArray = array();
+				$formArray['user_id'] = $user_id;
+				$formArray['plan_id'] = $this->input->post('plan_id');
+				$formArray['plan_rate'] = $this->input->post('plan_rate');
+				$formArray['voip_id'] = $this->input->post('voip_id');
+				$formArray['voip_rate'] = $this->input->post('voip_rate');
+				$formArray['install_charge'] = $this->input->post('install_charge');
+				$formArray['install_refund'] = $this->input->post('install_refund');
+				$formArray['router_charge'] = $this->input->post('router_charge');
+				$formArray['router_refund'] = $this->input->post('router_refund');
+				$formArray['voip_charge'] = $this->input->post('voip_charge');
+				$formArray['voip_refund'] = $this->input->post('voip_refund');
 
+				$this->Operations_Model->assign_plan($formArray);
+				$this->session->set_flashdata('success', 'Plan has successfully been assigned');
+				redirect('Operations/assign_validity/' . $user_id);
+			}
+		}
+
+		public function assign_validity($user_id)
+		{
+			$data = array();
+			$data['title'] = 'Assign Plan';
+			$data['user'] = $this->Operations_Model->fetch_profile_detail($user_id);
+
+			$this->load->view('layouts/header');
+			$this->load->view('layouts/sidebar');
+			$this->load->view('user/profile_base', $data);
+			$this->load->view('user/profile_validity_add');
+			$this->load->view('layouts/footer');
 		}
 
 	}
