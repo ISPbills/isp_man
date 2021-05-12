@@ -571,7 +571,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function assign_validity($user_id)
 		{
 			$data = array();
-			$data['title'] = 'Assign Plan';
+			$data['title'] = 'Assign Validity';
 			$data['user'] = $this->Operations_Model->fetch_profile_detail($user_id);
 
 			$this->load->view('layouts/header');

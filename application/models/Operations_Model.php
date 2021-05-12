@@ -183,6 +183,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function fetch_profile_detail($user_id) // Left Quick Summary Section
 		{
+			// Mock Query
+			// select * from tbl_services sr
+			// right join tbl_user us on us.user_id = sr.user_id
+			// left join tbl_internet it on it.plan_id = sr.plan_id
+			// left join tbl_voip vp on vp.voip_id = sr.voip_id
+			// left join tbl_area ar on ar.area_id = us.area_id
+
 			$this->db->select('*');
 			$this->db->from('tbl_user');
 			$this->db->join('tbl_area', 'tbl_area.area_id = tbl_user.area_id', 'left');
