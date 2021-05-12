@@ -17,7 +17,7 @@
 
 <!-- Main content -->
 <div class="content">
-  <div class="container">
+  <div class="container-fluid">
 
     <div class="card">
       <div class="card-header">
@@ -46,6 +46,8 @@
               <th>Email</th>
               <th>Address</th>
               <th>Area</th>
+              <th>Plan</th>
+              <th>VoIP</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -59,22 +61,28 @@
               <td><?php echo $row->email; ?></td>
               <td><?php echo $row->bill_address; ?></td>
               <td><?php echo $row->area_name; ?></td>
-              <td><?php echo ($row->user_status == 1) ? '<span class="badge badge-success">Active</span>' : '<span class="badge badge-danger">Inactive</span>'; ?></td>
+              <td><?php echo !empty($row->plan_name) ? $row->plan_name : '-'; ?></td>
+              <td>
+                <?php echo ($row->user_status == 1) ? '<span class="badge badge-success">Active</span>' : '<span class="badge badge-danger">Inactive</span>'; ?>
+              </td>
               <td>
                 <div class="dropdown">
                   <a class="btn btn-secondary btn-xs dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Action
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <?php if(empty($row->plan_id)): ?>
                     <a class="dropdown-item" href="<?php echo base_url('Operations/assign_plan/' . $row->user_id); ?>">Assign Plans</a>
+                    <?php else: ?>
                     <a class="dropdown-item" href="<?php echo base_url('Operations/assign_validity/' . $row->user_id); ?>">Assign Validity</a>
+                  <?php endif; ?>
                   </div>
                 </div>
               </td>
             </tr>
           <?php }} else { ?>
             <tr>
-              <td colspan="8">No record(s) found!</td>
+              <td colspan="9">No record(s) found!</td>
             </tr>
           <?php } ?>
           </tbody>

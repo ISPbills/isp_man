@@ -51,21 +51,23 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            <strong><i class="fas fa-map-marker-alt"></i> Address</strong>
-
+            <strong><i class="fas fa-map-marker-alt mr-1"></i>Address</strong>
             <p class="text-muted"><?php echo $user->bill_address .', '. $user->area_name; ?></p>
 
               <hr>
 
-            <strong><i class="fas fa-mobile"></i> Contact #</strong>
-
+            <strong><i class="fas fa-mobile mr-1"></i>Contact #</strong>
             <p class="text-muted"><?php echo $user->contact_no; ?></p>
 
               <hr>
 
-            <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
+            <strong><i class="fas fa-wifi mr-1"></i>WiFi</strong>
+            <p class="text-muted">50 Mbps @ Rs.700</p>
 
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+            <hr>
+
+            <strong><i class="fas fa-phone-alt mr-1"></i>VoIP</strong>
+            <p class="text-muted">50 Mbps @ Rs.700</p>
           </div>
           <!-- /.card-body -->
         </div>

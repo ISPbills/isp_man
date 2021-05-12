@@ -156,9 +156,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			// left join tbl_area ar on ar.area_id = us.area_id
 			// group by us.user_id
 
-			$fields = array('');
+			$fields = array(
+							'tbl_user.user_id',
+							'tbl_user.username',
+							'tbl_user.first_name',
+							'tbl_user.last_name',
+							'tbl_user.contact_no',
+							'tbl_user.email',
+							'tbl_user.bill_address',
+							'tbl_user.user_status',
+							'tbl_area.area_name',
+							'tbl_internet.plan_id',
+							'tbl_internet.plan_name'
+							);
 
-			$this->db->select('tbl_user.user_id');
+			$this->db->select($fields);
 			$this->db->from('tbl_services');
 			$this->db->join('tbl_user', 'tbl_user.user_id = tbl_services.user_id', 'right');
 			$this->db->join('tbl_internet', 'tbl_internet.plan_id = tbl_services.plan_id', 'left');
@@ -169,7 +181,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $user->result();
 		}
 
-		public function fetch_profile_detail($user_id)
+		public function fetch_profile_detail($user_id) // Left Quick Summary Section
 		{
 			$this->db->select('*');
 			$this->db->from('tbl_user');
