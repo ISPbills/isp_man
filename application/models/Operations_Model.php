@@ -192,7 +192,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			// left join tbl_area ar on ar.area_id = us.area_id
 
 			$this->db->select('*');
-			$this->db->from('tbl_user');
+			$this->db->from('tbl_services');
+			$this->db->join('tbl_user', 'tbl_user.user_id = tbl_services.user_id', 'right');
+			$this->db->join('tbl_area', 'tbl_area.area_id = tbl_user.area_id', 'left');
+			$this->db->join('tbl_area', 'tbl_area.area_id = tbl_user.area_id', 'left');
 			$this->db->join('tbl_area', 'tbl_area.area_id = tbl_user.area_id', 'left');
 			$this->db->where('user_id', $user_id);
 			$user = $this->db->get();
