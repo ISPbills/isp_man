@@ -63,6 +63,13 @@
             </li>
 
             <li class="nav-item">
+              <a href="<?php echo base_url('Operations/read_voip'); ?>" class="nav-link">
+                <i class="fas fa-hdd nav-icon"></i>
+                <p>STB Setting</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
               <a href="<?php echo base_url('Operations/read_branch'); ?>" class="nav-link">
                 <i class="fas fa-store-alt nav-icon"></i>
                 <p>Branch Setting</p>

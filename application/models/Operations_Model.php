@@ -167,7 +167,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							'tbl_user.user_status',
 							'tbl_area.area_name',
 							'tbl_internet.plan_id',
-							'tbl_internet.plan_name'
+							'tbl_internet.plan_name',
+							'tbl_voip.voip_id'
 							);
 
 			$this->db->select($fields);

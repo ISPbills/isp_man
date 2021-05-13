@@ -62,6 +62,7 @@
               <td><?php echo $row->bill_address; ?></td>
               <td><?php echo $row->area_name; ?></td>
               <td><?php echo !empty($row->plan_name) ? $row->plan_name : '-'; ?></td>
+              <td><?php echo !empty($row->voip_id) ? 'Yes' : '-'; ?></td>
               <td>
                 <?php echo ($row->user_status == 1) ? '<span class="badge badge-success">Active</span>' : '<span class="badge badge-danger">Inactive</span>'; ?>
               </td>
