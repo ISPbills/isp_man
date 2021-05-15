@@ -25,7 +25,7 @@
       <!-- /.card-header -->
       
       <!-- form start -->
-      <?php echo form_open('Operations/create_user'); ?>
+      <?php echo form_open('User/create_user'); ?>
         <div class="card-body">
           
           <div class="form-row">
@@ -109,7 +109,7 @@
 
           <div class="form-row">
             <div class="form-group col-md">
-              <label for="inputBusiName">Buiness/Comany Name</label>
+              <label for="inputBusiName">Business/Comany Name</label>
               <input type="text" name="business_name" class="form-control" id="inputBusiName">
               <div class="text-danger"><?php echo form_error('business_name'); ?></div>
             </div>

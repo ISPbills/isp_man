@@ -1,5 +1,5 @@
       <div class="col-md">
-        <?php echo form_open('Operations/assign_plan/' . $user->user_id); ?>
+        <?php echo form_open('User/assign_plan/' . $user->user_id); ?>
           <div class="card card-info">
             <div class="card-header">
               <h3 class="card-title"><i class="fas fa-wifi mr-1"></i>Internet Plan</h3>

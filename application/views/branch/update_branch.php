@@ -25,7 +25,7 @@
       <!-- /.card-header -->
       
       <!-- form start -->
-      <?php echo form_open('Operations/update_branch/' . $branch->branch_id); ?>
+      <?php echo form_open('Administration/update_branch/' . $branch->branch_id); ?>
         <div class="card-body">
 
           <div class="form-row">

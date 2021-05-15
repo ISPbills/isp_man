@@ -25,7 +25,7 @@
       <!-- /.card-header -->
 
       <!-- form start -->
-      <?php echo form_open('Operations/update_area/' . $area->area_id); ?>
+      <?php echo form_open('Administration/update_area/' . $area->area_id); ?>
         <div class="card-body">
 
           <div class="form-row">

@@ -25,7 +25,7 @@
       <!-- /.card-header -->
       
       <!-- form start -->
-      <?php echo form_open('Operations/create_branch'); ?>
+      <?php echo form_open('Administration/create_branch'); ?>
         <div class="card-body">
 
           <div class="form-row">

@@ -25,7 +25,7 @@
           
           <li class="nav-header">User Management</li>
             <li class="nav-item">
-              <a href="<?php echo base_url('Operations/read_user'); ?>" class="nav-link">
+              <a href="<?php echo base_url('User/read_user'); ?>" class="nav-link">
                 <i class="fas fa-users nav-icon"></i>
                 <p>Users</p>
               </a>
@@ -33,7 +33,7 @@
 
           <li class="nav-header">Payment Management</li>
             <li class="nav-item">
-              <a href="<?php echo base_url('Operations/read_staff'); ?>" class="nav-link">
+              <a href="<?php echo base_url('Administration/read_staff'); ?>" class="nav-link">
                 <i class="fas fa-file-invoice nav-icon"></i>
                 <p>Payments</p>
               </a>
@@ -42,44 +42,51 @@
           <li class="nav-header">Administration Settings</li>
 
             <li class="nav-item">
-              <a href="<?php echo base_url('Operations/read_area'); ?>" class="nav-link">
+              <a href="<?php echo base_url('Administration/read_area'); ?>" class="nav-link">
                 <i class="fas fa-building nav-icon"></i>
-                <p>Area Setting</p>
+                <p>User Area</p>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="<?php echo base_url('Operations/read_internet'); ?>" class="nav-link">
+              <a href="<?php echo base_url('Administration/read_internet'); ?>" class="nav-link">
                 <i class="fas fa-wifi nav-icon"></i>
-                <p>Internet Setting</p>
+                <p>Internet Plan</p>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="<?php echo base_url('Operations/read_voip'); ?>" class="nav-link">
+              <a href="<?php echo base_url('Administration/read_voip'); ?>" class="nav-link">
                 <i class="fas fa-phone-alt nav-icon"></i>
-                <p>VoIP Setting</p>
+                <p>VoIP Plan</p>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="<?php echo base_url('Operations/read_voip'); ?>" class="nav-link">
+              <a href="<?php echo base_url('Administration/package_list'); ?>" class="nav-link">
+                <i class="fas fa-tv nav-icon"></i>
+                <p>Cable Package</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="<?php echo base_url('Administration/read_stb'); ?>" class="nav-link">
                 <i class="fas fa-hdd nav-icon"></i>
-                <p>STB Setting</p>
+                <p>Set-Top Box</p>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="<?php echo base_url('Operations/read_branch'); ?>" class="nav-link">
+              <a href="<?php echo base_url('Administration/read_branch'); ?>" class="nav-link">
                 <i class="fas fa-store-alt nav-icon"></i>
-                <p>Branch Setting</p>
+                <p>Staff Branch</p>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="<?php echo base_url('Operations/read_staff'); ?>" class="nav-link">
+              <a href="<?php echo base_url('Administration/read_staff'); ?>" class="nav-link">
                 <i class="fas fa-user-cog nav-icon"></i>
-                <p>Staff Setting</p>
+                <p>Staff Settings</p>
               </a>
             </li>
 

@@ -21,7 +21,7 @@
 
     <div class="card">
       <div class="card-header">
-        <a href="<?php echo base_url('Operations/create_branch'); ?>" class="btn btn-sm btn-warning">Add Branch</a>
+        <a href="<?php echo base_url('Administration/create_branch'); ?>" class="btn btn-sm btn-warning">Add Branch</a>
         <div class="card-tools">
           <div class="input-group input-group-sm" style="width: 150px;">
             <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
@@ -64,8 +64,8 @@
                     Action
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="<?php echo base_url('Operations/update_branch/' . $row->branch_id); ?>">Edit</a>
-                    <a class="dropdown-item" href="<?php echo base_url('Operations/delete_branch/' . $row->branch_id); ?>">Delete</a>
+                    <a class="dropdown-item" href="<?php echo base_url('Administration/update_branch/' . $row->branch_id); ?>">Edit</a>
+                    <a class="dropdown-item" href="<?php echo base_url('Administration/delete_branch/' . $row->branch_id); ?>">Delete</a>
                   </div>
                 </div>
               </td>

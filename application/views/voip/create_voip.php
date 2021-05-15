@@ -25,7 +25,7 @@
       <!-- /.card-header -->
 
       <!-- form start -->
-      <?php echo form_open('Operations/create_voip'); ?>
+      <?php echo form_open('Administration/create_voip'); ?>
         <div class="card-body">
           
           <div class="form-row">

@@ -2,12 +2,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Area List</h1>
+        <h1 class="m-0">Package List</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-          <li class="breadcrumb-item active">Area Management</li>
+          <li class="breadcrumb-item active">Package Management</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -21,7 +21,7 @@
 
     <div class="card">
       <div class="card-header">
-        <a href="<?php echo base_url('Administration/create_area'); ?>" class="btn btn-sm btn-warning">Add Area</a>
+        <a href="<?php echo base_url('Administration/create_package'); ?>" class="btn btn-sm btn-warning">Add Package</a>
         <div class="card-tools">
           <div class="input-group input-group-sm" style="width: 150px;">
             <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
@@ -40,32 +40,32 @@
         <table class="table table-hover text-center table-bordered table-sm table-head-fixed text-nowrap">
           <thead>
             <tr>
-              <th>Area</th>
-              <th>District</th>
-              <th>City</th>
-              <th>State</th>
-              <th>Pin #</th>
-              <th>Country</th>
+              <th>Package</th>
+              <th>Rate</th>
+              <th>Type</th>
+              <th>Duration</th>
+              <th>Vendor</th>
+              <th>Vendor Rate</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <?php if(!empty($area)){ foreach($area as $row){ ?>
+            <?php if(!empty($cable)){ foreach($cable as $row){ ?>
             <tr>
-              <td><?php echo $row->area_name; ?></td>
-              <td><?php echo $row->area_district; ?></td>
-              <td><?php echo $row->area_city; ?></td>
-              <td><?php echo $row->area_state; ?></td>
-              <td><?php echo $row->area_pin; ?></td>
-              <td><?php echo $row->area_country; ?></td>
+              <td><?php echo $row->pack_name; ?></td>
+              <td><?php echo $row->pack_rate; ?></td>
+              <td><?php echo $row->pack_type; ?></td>
+              <td><?php echo $row->pack_duration; ?></td>
+              <td><?php echo $row->vendor_name; ?></td>
+              <td><?php echo $row->vendor_rate; ?></td>
               <td>
                 <div class="dropdown">
                   <a class="btn btn-secondary btn-xs dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Action
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="<?php echo base_url('Administration/update_area/' . $row->area_id); ?>">Edit</a>
-                    <a class="dropdown-item" href="<?php echo base_url('Administration/delete_area/' . $row->area_id); ?>">Delete</a>
+                    <a class="dropdown-item" href="<?php echo base_url('Administration/update_package/' . $row->pack_id); ?>">Edit</a>
+                    <a class="dropdown-item" href="<?php echo base_url('Administration/delete_package/' . $row->pack_id); ?>">Delete</a>
                   </div>
                 </div>
               </td>

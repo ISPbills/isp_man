@@ -141,6 +141,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->delete('tbl_internet');
 		}
 
+		public function create_package($formArray)
+		{
+			$this->db->insert('tbl_cable', $formArray);
+		}
+
+		public function fetch_all_package()
+		{
+			return $cable = $this->db->get('tbl_cable')->result();
+		}
+
 		public function create_user($formArray)
 		{
 			$this->db->insert('tbl_user', $formArray);

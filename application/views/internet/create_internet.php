@@ -25,7 +25,7 @@
       <!-- /.card-header -->
       
       <!-- form start -->
-      <?php echo form_open('Operations/create_internet'); ?>
+      <?php echo form_open('Administration/create_internet'); ?>
         <div class="card-body">
           
           <div class="form-row">
