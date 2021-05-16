@@ -30,7 +30,7 @@
 
             <h3 class="profile-username text-center"><?php echo $user->first_name .' '. $user->last_name; ?></h3>
 
-            <p class="text-muted text-center">UID: <?php echo $user->username; ?></p>
+            <p class="text-muted text-center"><?php echo $user->username; ?></p>
 
           <div class="btn-group btn-block" role="group">
               <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>

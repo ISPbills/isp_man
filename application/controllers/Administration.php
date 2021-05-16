@@ -513,9 +513,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function stb_list()
 		{
+
+			$data = array();
+			$data['stb'] = $this->Operations_Model->fetch_all_stb();
+
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
-			$this->load->view('stb/stb_list');
+			$this->load->view('stb/stb_list', $data);
 			$this->load->view('layouts/footer');
 		}
 
@@ -541,7 +545,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			else
 			{
 				$formArray = array();
-				$formArray['stb_no'] = $this->input->post('stb_no');
+				$formArray['stb_no'] = strtoupper($this->input->post('stb_no'));
 				$formArray['stb_type'] = $this->input->post('stb_type');
 				$formArray['vendor_name'] = $this->input->post('vendor_name');
 				$formArray['stb_rate'] = $this->input->post('stb_rate');

@@ -161,6 +161,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->insert('tbl_stb', $formArray);
 		}
 
+		public function fetch_all_stb()
+		{
+			$this->db->select('*');
+			$this->db->from('tbl_stb');
+			$this->db->join('tbl_cable', 'tbl_cable.pack_id = tbl_stb.pack_id', 'left');
+			return $this->db->get()->result();
+		}
+
 		public function fetch_all_user()
 		{
 			// Mock Query
@@ -209,10 +217,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->select('*');
 			$this->db->from('tbl_services');
 			$this->db->join('tbl_user', 'tbl_user.user_id = tbl_services.user_id', 'right');
+			$this->db->join('tbl_internet', 'tbl_internet.plan_id = tbl_services.plan_id', 'left');
+			$this->db->join('tbl_voip', 'tbl_voip.voip_id = tbl_services.voip_id', 'left');
 			$this->db->join('tbl_area', 'tbl_area.area_id = tbl_user.area_id', 'left');
-			$this->db->join('tbl_area', 'tbl_area.area_id = tbl_user.area_id', 'left');
-			$this->db->join('tbl_area', 'tbl_area.area_id = tbl_user.area_id', 'left');
-			$this->db->where('user_id', $user_id);
+			$this->db->where('tbl_user.user_id', $user_id);
 			$user = $this->db->get();
 			return $user->row();
 		}
