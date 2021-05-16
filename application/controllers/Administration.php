@@ -509,6 +509,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->session->set_flashdata('success', 'Cable Package Added Successfully');
 				redirect('Administration/package_list');
 			}
+		}
+
+		public function stb_list()
+		{
+			$this->load->view('layouts/header');
+			$this->load->view('layouts/sidebar');
+			$this->load->view('stb/stb_list');
+			$this->load->view('layouts/footer');
+		}
+
+		public function create_stb()
+		{
+			$data = array();
+			$data['cable'] = $this->Operations_Model->fetch_all_package();
+
+			$this->form_validation->set_rules('stb_no', 'Set-Top Box #', 'required|is_unique[tbl_stb.stb_no]');
+			$this->form_validation->set_rules('stb_type', 'Set-Top Box Type', 'required');
+			$this->form_validation->set_rules('vendor_name', 'Vendor Name', 'required');
+			$this->form_validation->set_rules('stb_rate', 'STB Rate', 'required');
+			$this->form_validation->set_rules('stb_warranty', 'STB Warranty', 'required');
+			$this->form_validation->set_rules('pack_id', 'Package ID', 'required');
+
+			if($this->form_validation->run() == FALSE)
+			{
+				$this->load->view('layouts/header');
+				$this->load->view('layouts/sidebar');
+				$this->load->view('stb/create_stb', $data);
+				$this->load->view('layouts/footer');
+			}
+			else
+			{
+				$formArray = array();
+				$formArray['stb_no'] = $this->input->post('stb_no');
+				$formArray['stb_type'] = $this->input->post('stb_type');
+				$formArray['vendor_name'] = $this->input->post('vendor_name');
+				$formArray['stb_rate'] = $this->input->post('stb_rate');
+				$formArray['stb_warranty'] = $this->input->post('stb_warranty');
+				$formArray['pack_id'] = $this->input->post('pack_id');
+
+				$this->Operations_Model->create_stb($formArray);
+				$this->session->set_flashdata('success', 'STB Added Successfully');
+				redirect('Administration/stb_list');
+			}
 
 		}
+
 	}

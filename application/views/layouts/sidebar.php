@@ -70,7 +70,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="<?php echo base_url('Administration/read_stb'); ?>" class="nav-link">
+              <a href="<?php echo base_url('Administration/stb_list'); ?>" class="nav-link">
                 <i class="fas fa-hdd nav-icon"></i>
                 <p>Set-Top Box</p>
               </a>

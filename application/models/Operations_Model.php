@@ -156,6 +156,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->insert('tbl_user', $formArray);
 		}
 
+		public function create_stb($formArray)
+		{
+			$this->db->insert('tbl_stb', $formArray);
+		}
+
 		public function fetch_all_user()
 		{
 			// Mock Query
