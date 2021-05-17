@@ -16,11 +16,6 @@
                   </select>
                   <div class="text-danger"><?php echo form_error('plan_id'); ?></div>
                 </div>
-                <div class="form-group col-md">
-                  <label for="inputPlanRate">Plan Rate</label>
-                  <input type="number" class="form-control" name="plan_rate" id="inputPlanRate">
-                  <div class="text-danger"><?php echo form_error('plan_rate'); ?></div>
-                </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md">
@@ -61,10 +56,6 @@
                       <?php endforeach; ?>
                   </select>
                 </div>
-                <div class="form-group col-md">
-                  <label for="inputVoipRate">Plan Rate</label>
-                  <input type="number" class="form-control" name="voip_rate" id="inputVoipRate">
-                </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md">
@@ -78,40 +69,37 @@
               </div>
             </div>
             <!-- /.card-body -->
-            <div class="card-footer">
-              <button class="btn btn-primary float-right" name="submit" type="submit">Submit</button>
-            </div>
           </div>
           <!-- /.card -->
 
           <div class="card card-info">
             <div class="card-header">
-              <h3 class="card-title"><i class="fas fa-phone-alt mr-1"></i>VoIP Plan</h3>
+              <h3 class="card-title"><i class="fas fa-phone-alt mr-1"></i>Set-Top Box</h3>
             </div>
             <div class="card-body">
               <div class="form-row">
                 <div class="form-group col-md">
-                  <label for="selectVoipNo">VoIP #</label>
-                  <select name="voip_id" class="custom-select" id="selectVoipNo">
+                  <label for="stbNo">STB #</label>
+                  <select name="stb_id" class="custom-select" id="stbNo">
                     <option value="">Choose...</option>
-                      <?php foreach ($voip as $row) : ?>
-                          <option value="<?php echo $row->voip_id; ?>"><?php echo $row->voip_no.' - '.$row->vendor_name; ?></option>
+                      <?php foreach ($stb as $row) : ?>
+                          <option value="<?php echo $row->stb_id; ?>"><?php echo $row->stb_no; ?></option>
                       <?php endforeach; ?>
                   </select>
-                </div>
-                <div class="form-group col-md">
-                  <label for="inputVoipRate">Plan Rate</label>
-                  <input type="number" class="form-control" name="voip_rate" id="inputVoipRate">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md">
-                  <label for="inputSetDep">VoIP Set Deposit</label>
-                  <input type="number" class="form-control" name="voip_charge" id="inputSetDep">
+                  <label for="stbDep">STB Deposit</label>
+                  <input type="number" class="form-control" name="stb_charge" id="stbDep">
                 </div>
                 <div class="form-group col-md">
-                  <label for="inputVoipSetRef">VoIP Set Refund</label>
-                  <input type="number" class="form-control" name="voip_refund" id="inputVoipSetRef">
+                  <label for="stbRef">STB Refund</label>
+                  <input type="number" class="form-control" name="stb_refund" id="stbRef">
+                </div>
+                <div class="form-group col-md">
+                  <label for="stbRef">Cable Wire Charge</label>
+                  <input type="number" class="form-control" name="cable_wire" id="stbRef">
                 </div>
               </div>
             </div>

@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 
-		public function read_user()
+		public function user_list()
 		{
 			$data = array();
 			$data['user'] = $this->Operations_Model->fetch_all_user();
@@ -86,9 +86,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data['user'] = $this->Operations_Model->fetch_profile_detail($user_id);
 			$data['net'] = $this->Operations_Model->fetch_all_internet_plan();
 			$data['voip'] = $this->Operations_Model->fetch_all_voip();
+			$data['stb'] = $this->Operations_Model->fetch_all_stb();
 
 			$this->form_validation->set_rules('plan_id', 'Internet Plan', 'required');
-			$this->form_validation->set_rules('plan_rate', 'Plan Rate', 'required');
 
 			if($this->form_validation->run() == FALSE)
 			{
@@ -100,22 +100,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			else
 			{
-				$formArray = array();
-				$formArray['user_id'] = $user_id;
-				$formArray['plan_id'] = $this->input->post('plan_id');
-				$formArray['plan_rate'] = $this->input->post('plan_rate');
-				$formArray['voip_id'] = $this->input->post('voip_id');
-				$formArray['voip_rate'] = $this->input->post('voip_rate');
-				$formArray['install_charge'] = $this->input->post('install_charge');
-				$formArray['install_refund'] = $this->input->post('install_refund');
-				$formArray['router_charge'] = $this->input->post('router_charge');
-				$formArray['router_refund'] = $this->input->post('router_refund');
-				$formArray['voip_charge'] = $this->input->post('voip_charge');
-				$formArray['voip_refund'] = $this->input->post('voip_refund');
+				$services = array();
+				$services['user_id'] = $user_id;
+				$services['plan_id'] = $this->input->post('plan_id');
+				$services['voip_id'] = $this->input->post('voip_id');
+				$services['stb_id'] = $this->input->post('stb_id');
+				
+				$charges = array();
+				$charges['user_id'] = $user_id;
+				$charges['install_charge'] = $this->input->post('install_charge');
+				$charges['install_refund'] = $this->input->post('install_refund');
+				$charges['router_charge'] = $this->input->post('router_charge');
+				$charges['router_refund'] = $this->input->post('router_refund');
+				$charges['voip_charge'] = $this->input->post('voip_charge');
+				$charges['voip_refund'] = $this->input->post('voip_refund');
+				$charges['stb_charge'] = $this->input->post('stb_charge');
+				$charges['stb_refund'] = $this->input->post('stb_refund');
+				$charges['cable_wire'] = $this->input->post('cable_wire');
 
-				$this->Operations_Model->assign_plan($formArray);
+				$this->Operations_Model->assign_plan($services, $charges);
 				$this->session->set_flashdata('success', 'Plan has successfully been assigned');
-				redirect('Operations/assign_validity/' . $user_id);
+				redirect('User/assign_validity/' . $user_id);
 			}
 		}
 

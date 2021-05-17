@@ -171,14 +171,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function fetch_all_user()
 		{
-			// Mock Query
-			// select * from tbl_services sr
-			// right join tbl_user us on us.user_id = sr.user_id
-			// left join tbl_internet it on it.plan_id = sr.plan_id
-			// left join tbl_voip vp on vp.voip_id = sr.voip_id
-			// left join tbl_area ar on ar.area_id = us.area_id
-			// group by us.user_id
-
 			$fields = array(
 							'tbl_user.user_id',
 							'tbl_user.username',
@@ -200,34 +192,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->join('tbl_internet', 'tbl_internet.plan_id = tbl_services.plan_id', 'left');
 			$this->db->join('tbl_voip', 'tbl_voip.voip_id = tbl_services.voip_id', 'left');
 			$this->db->join('tbl_area', 'tbl_area.area_id = tbl_user.area_id', 'left');
-			$this->db->group_by('tbl_user.user_id');
+			$this->db->group_by($fields);
 			$user = $this->db->get();
 			return $user->result();
 		}
 
-		public function fetch_profile_detail($user_id) // Left Quick Summary Section
+		public function fetch_profile_detail($user_id) // Left Side Profile Strip
 		{
-			// Mock Query
-			// select * from tbl_services sr
-			// right join tbl_user us on us.user_id = sr.user_id
-			// left join tbl_internet it on it.plan_id = sr.plan_id
-			// left join tbl_voip vp on vp.voip_id = sr.voip_id
-			// left join tbl_area ar on ar.area_id = us.area_id
+			$fields = array(
+							'tbl_user.user_id',
+							'tbl_user.username',
+							'tbl_user.first_name',
+							'tbl_user.last_name',
+							'tbl_user.contact_no',
+							'tbl_user.bill_address',
+							'tbl_area.area_name',
+							'tbl_services.plan_id',
+							'tbl_internet.plan_name',
+							'tbl_internet.plan_rate',
+							'tbl_services.voip_id',
+							'tbl_voip.voip_no',
+							'tbl_services.stb_id',
+							'tbl_stb.stb_no',
+							'tbl_cable.pack_name'
+							);
 
-			$this->db->select('*');
+			$this->db->select($fields);
 			$this->db->from('tbl_services');
 			$this->db->join('tbl_user', 'tbl_user.user_id = tbl_services.user_id', 'right');
 			$this->db->join('tbl_internet', 'tbl_internet.plan_id = tbl_services.plan_id', 'left');
 			$this->db->join('tbl_voip', 'tbl_voip.voip_id = tbl_services.voip_id', 'left');
+			$this->db->join('tbl_stb', 'tbl_stb.stb_id = tbl_services.stb_id', 'left');
+			$this->db->join('tbl_cable', 'tbl_cable.pack_id = tbl_cable.pack_id', 'left');
 			$this->db->join('tbl_area', 'tbl_area.area_id = tbl_user.area_id', 'left');
 			$this->db->where('tbl_user.user_id', $user_id);
 			$user = $this->db->get();
 			return $user->row();
 		}
 
-		public function assign_plan($formArray)
+		public function assign_plan($services, $charges)
 		{
-			$this->db->insert('tbl_services', $formArray);
+			$this->db->insert('tbl_services', $services);
+			$this->db->insert('tbl_charges', $charges);
 		}
 
 	}

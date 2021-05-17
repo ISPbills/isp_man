@@ -25,7 +25,7 @@
           
           <li class="nav-header">User Management</li>
             <li class="nav-item">
-              <a href="<?php echo base_url('User/read_user'); ?>" class="nav-link">
+              <a href="<?php echo base_url('User/user_list'); ?>" class="nav-link">
                 <i class="fas fa-users nav-icon"></i>
                 <p>Users</p>
               </a>
