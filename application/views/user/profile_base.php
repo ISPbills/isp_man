@@ -62,17 +62,17 @@
               <hr>
 
             <strong><i class="fas fa-wifi mr-1"></i>WiFi</strong>
-            <p class="text-muted"><?php echo !empty($user->plan_id) ? $user->plan_name : '-' ; ?></p>
+            <p class="text-muted"><?php echo !empty($user->plan_id) ? $user->plan_name : 'N/A' ; ?></p>
 
             <hr>
 
             <strong><i class="fas fa-phone-alt mr-1"></i>VoIP #</strong>
-            <p class="text-muted"><?php echo !empty($user->voip_id) ? $user->voip_no : '-' ; ?></p>
+            <p class="text-muted"><?php echo !empty($user->voip_id) ? $user->voip_no : 'N/A' ; ?></p>
 
             <hr>
 
             <strong><i class="fas fa-hdd mr-1"></i>STB #</strong>
-            <p class="text-muted"><?php echo !empty($user->stb_id) ? $user->stb_no.' - '.$user->pack_name : '-' ; ?></p>
+            <p class="text-muted"><?php echo !empty($user->stb_id) ? $user->stb_no.' - '.$user->pack_name : 'N/A' ; ?></p>
           </div>
           <!-- /.card-body -->
         </div>
