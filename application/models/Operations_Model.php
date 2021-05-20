@@ -186,10 +186,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			// group by sr.user_id
 
 			$fields = array(
-							'tbl_services.user_id',
-							'tbl_services.plan_id',
-							'tbl_services.voip_id',
-							'tbl_services.stb_id',
+							'tbl_user.user_id',
+							'tbl_internet.plan_id',
+							'tbl_voip.voip_id',
+							'tbl_stb.stb_id',
 							'tbl_user.username',
 							'tbl_user.first_name',
 							'tbl_user.last_name',
