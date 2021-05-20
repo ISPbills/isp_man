@@ -37,6 +37,7 @@
               <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                 <a class="dropdown-item" href="#">Renew Plan</a>
                 <a class="dropdown-item" href="#">Update Profile</a>
+                <a class="dropdown-item" href="<?php echo base_url('User/additional_stb/' . $user->user_id); ?>">Assign Additional STB</a>
               </div>
             </div>
           </div>

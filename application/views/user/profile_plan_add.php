@@ -83,7 +83,7 @@
                   <select name="stb_id" class="custom-select" id="stbNo">
                     <option value="">Choose...</option>
                       <?php foreach ($stb as $row) : ?>
-                          <option value="<?php echo $row->stb_id; ?>"><?php echo $row->stb_no; ?></option>
+                          <option value="<?php echo $row->stb_id; ?>"><?php echo $row->stb_no.' - '.$row->pack_rate; ?></option>
                       <?php endforeach; ?>
                   </select>
                 </div>

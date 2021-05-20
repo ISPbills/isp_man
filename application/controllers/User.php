@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
-			$this->load->view('user/list_user', $data);
+			$this->load->view('user/user_list', $data);
 			$this->load->view('layouts/footer');
 		}
 
@@ -122,6 +122,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->session->set_flashdata('success', 'Plan has successfully been assigned');
 				redirect('User/assign_validity/' . $user_id);
 			}
+		}
+
+		public function additional_stb($user_id)
+		{
+			$data = array();
+			$data['title'] = 'Additional STB';
+			$data['user'] = $this->Operations_Model->fetch_profile_detail($user_id);
+			$data['stb'] = $this->Operations_Model->fetch_all_stb();
+
+			$this->form_validation->set_rules('stb_id', 'STB #', 'required');
+
+			if($this->form_validation->run() == FALSE)
+			{
+				$this->load->view('layouts/header');
+				$this->load->view('layouts/sidebar');
+				$this->load->view('user/profile_base', $data);
+				$this->load->view('user/profile_additional_stb');
+				$this->load->view('layouts/footer');
+			}
+			else
+			{
+				$formArray = array();
+				$formArray['stb_id'] = $this->input->post('stb_id');
+				$formArray['user_id'] = $user_id;
+
+				$this->Operations_Model->additional_stb($formArray);
+				$this->session->set_flashdata('success', 'STB has been Added Successfully');
+				redirect('User/user_list');
+			}
+
 		}
 
 		public function assign_validity($user_id)
