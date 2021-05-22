@@ -185,6 +185,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			// left join tbl_area ar on ar.area_id = us.area_id
 			// group by sr.user_id
 
+			// select
+			// us.username,
+			// CASE
+			// 	WHEN sr.plan_id > 0 THEN COUNT(sr.plan_id)
+			// END AS wifi,
+			// CASE
+			// 	WHEN sr.voip_id > 0 THEN COUNT(sr.voip_id)
+			// END AS voip,
+			// CASE
+			// 	WHEN sr.stb_id > 0 THEN COUNT(sr.stb_id)
+			// END AS cable
+			// from tbl_services sr
+			// right join tbl_user us on us.user_id = sr.user_id
+			// left join tbl_internet nt on nt.plan_id = sr.plan_id
+			// left join tbl_voip vp on vp.voip_id = sr.voip_id
+			// left join tbl_stb st on st.stb_id = sr.stb_id
+			// left join tbl_area ar on ar.area_id = us.area_id
+			// group by sr.user_id
+
 			$fields = array(
 							'tbl_user.user_id',
 							'tbl_internet.plan_id',

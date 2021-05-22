@@ -40,14 +40,13 @@
         <table class="table table-hover text-center table-bordered table-sm table-head-fixed text-nowrap">
           <thead>
             <tr>
+              <th>Services</th>
               <th>Username</th>
               <th>Name</th>
               <th>Contact #</th>
               <th>Email</th>
               <th>Address</th>
               <th>Area</th>
-              <th>Plan</th>
-              <th>VoIP</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -55,14 +54,13 @@
           <tbody>
             <?php if(!empty($user)){ foreach($user as $row){ ?>
             <tr>
+              <td><?php echo !empty($row->plan_name) ? $row->plan_name : '-'; ?></td>
               <td><?php echo $row->username; ?></td>
               <td><?php echo $row->first_name .' '. $row->last_name; ?></td>
               <td><?php echo $row->contact_no; ?></td>
               <td><?php echo $row->email; ?></td>
               <td><?php echo $row->bill_address; ?></td>
               <td><?php echo $row->area_name; ?></td>
-              <td><?php echo !empty($row->plan_name) ? $row->plan_name : '-'; ?></td>
-              <td><?php echo !empty($row->voip_id) ? 'Yes' : '-'; ?></td>
               <td>
                 <?php echo ($row->user_status == 1) ? '<span class="badge badge-success">Active</span>' : '<span class="badge badge-danger">Inactive</span>'; ?>
               </td>
