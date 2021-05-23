@@ -20,14 +20,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 
-		public function read_staff()
+		public function staff_list()
 		{
 			$data = array();
 			$data['staff'] = $this->Operations_Model->fetch_all_staff();
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
-			$this->load->view('staff/list_staff', $data);
+			$this->load->view('staff/staff_list', $data);
 			$this->load->view('layouts/footer');
 		}
 
@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->Operations_Model->create_staff($formArray);
 
 				$this->session->set_flashdata('success', 'Staff Added Successfully');
-				redirect(base_url('Administration/read_staff'));
+				redirect(base_url('Administration/staff_list'));
 			}
 
 		}
@@ -104,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 				$this->Operations_Model->update_staff($staff_id, $formArray);
 				$this->session->set_flashdata('success', 'Staff Update Successfully');
-				redirect(base_url('Administration/read_staff'));
+				redirect(base_url('Administration/staff_list'));
 			}
 		}
 
@@ -115,24 +115,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if(empty($staff))
 			{
 				$this->session->set_flashdata('error', 'Record Unavailable to Delete');
-				redirect(base_url('Administration/read_staff'));
+				redirect(base_url('Administration/staff_list'));
 			}
 			else
 			{
 				$this->Operations_Model->delete_staff($staff_id);
 				$this->session->set_flashdata('success', 'Record Deleted Successfully');
-				redirect(base_url('Administration/read_staff'));
+				redirect(base_url('Administration/staff_list'));
 			}
 		}
 
-		public function read_branch()
+		public function branch_list()
 		{
 			$data = array();
 			$data['branch'] = $this->Operations_Model->fetch_all_branch();
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
-			$this->load->view('branch/list_branch', $data);
+			$this->load->view('branch/branch_list', $data);
 			$this->load->view('layouts/footer');
 		}
 
@@ -169,7 +169,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->Operations_Model->create_branch($formArray);
 
 				$this->session->set_flashdata('success', 'Branch Added Successfully');
-				redirect('Administration/read_branch');
+				redirect('Administration/branch_list');
 			}
 		}
 
@@ -177,6 +177,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		{
 			$data = array();
 			$data['branch'] = $this->Operations_Model->fetch_single_branch($branch_id);
+			$data['area'] = $this->Operations_Model->fetch_all_area();
 
 			$this->form_validation->set_rules('branch_name', 'Branch Name', 'required');
 			$this->form_validation->set_rules('business_gst', '15 digit GST Number', 'required');
@@ -204,18 +205,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 				$this->Operations_Model->update_branch($branch_id, $formArray);
 				$this->session->set_flashdata('success', 'Branch Updated Successfully');
-				redirect(base_url('Administration/read_branch'));
+				redirect(base_url('Administration/branch_list'));
 			}
 		}
 
-		public function read_area()
+		public function area_list()
 		{
 			$data = array();
 			$data['area'] = $this->Operations_Model->fetch_all_area();
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
-			$this->load->view('area/list_area', $data);
+			$this->load->view('area/area_list', $data);
 			$this->load->view('layouts/footer');
 		}
 
@@ -247,7 +248,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				$this->Operations_Model->create_area($formArray);
 				$this->session->set_flashdata('success', 'Area Added Successfully');
-				redirect(base_url('Administration/read_area'));
+				redirect(base_url('Administration/area_list'));
 			}
 		}
 
@@ -282,7 +283,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 				$this->Operations_Model->update_area($area_id, $formArray);
 				$this->session->set_flashdata('success', 'Area Updated Successfully');
-				redirect(base_url('Administration/read_area'));				
+				redirect(base_url('Administration/area_list'));				
 			}
 		}
 
@@ -303,14 +304,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 
-		public function read_voip()
+		public function voip_list()
 		{
 			$data = array();
 			$data['voip'] = $this->Operations_Model->fetch_all_voip();
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
-			$this->load->view('voip/list_voip', $data);
+			$this->load->view('voip/voip_list', $data);
 			$this->load->view('layouts/footer');
 		}
 
@@ -342,7 +343,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				$this->Operations_Model->create_voip($formArray);
 				$this->session->set_flashdata('success', 'VoIP Added Successfully');
-				redirect(base_url('Administration/read_voip'));
+				redirect(base_url('Administration/voip_list'));
 			}
 		}
 
@@ -377,18 +378,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				$this->Operations_Model->update_voip($voip_id, $formArray);
 				$this->session->set_flashdata('success', 'VoIP # Updated Successfully');
-				redirect(base_url('Administration/read_voip'));
+				redirect(base_url('Administration/voip_list'));
 			}
 		}
 
-		public function read_internet()
+		public function internet_list()
 		{
 			$data['net'] = array();
 			$data['net'] = $this->Operations_Model->fetch_all_internet_plan();
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
-			$this->load->view('internet/list_internet', $data);
+			$this->load->view('internet/internet_list', $data);
 			$this->load->view('layouts/footer');
 		}
 
@@ -416,7 +417,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				$this->Operations_Model->create_internet($formArray);
 				$this->session->set_flashdata('success', 'Internet Plan Added Successfully');
-				redirect(base_url('Administration/read_internet'));
+				redirect(base_url('Administration/internet_list'));
 			}
 		}
 
@@ -447,7 +448,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				$this->Operations_Model->update_internet($plan_id, $formArray);
 				$this->session->set_flashdata('success', 'Internet Plan Updated Successfully');
-				redirect(base_url('Administration/read_internet'));
+				redirect(base_url('Administration/internet_list'));
 			}
 		}
 
@@ -458,13 +459,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if(empty($net))
 			{
 				$this->session->set_flashdata('error', 'Record Unavailable to Delete');
-				redirect(base_url('Administration/read_internet'));
+				redirect(base_url('Administration/internet_list'));
 			}
 			else
 			{
 				$this->Operations_Model->delete_internet($plan_id);
 				$this->session->set_flashdata('success', 'Record Deleted Successfully');
-				redirect(base_url('Administration/read_internet'));
+				redirect(base_url('Administration/internet_list'));
 			}
 		}
 		

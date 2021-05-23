@@ -54,7 +54,7 @@
           <tbody>
             <?php if(!empty($user)){ foreach($user as $row){ ?>
             <tr>
-              <td><?php echo !empty($row->plan_name) ? $row->plan_name : '-'; ?></td>
+              <td><?php echo !empty($row->cable) ? $row->cable : '-'; ?></td>
               <td><?php echo $row->username; ?></td>
               <td><?php echo $row->first_name .' '. $row->last_name; ?></td>
               <td><?php echo $row->contact_no; ?></td>

@@ -51,12 +51,13 @@
             
             <div class="form-group col-md">
               <label for="selectArea">Area</label>
-              <select class="custom-select"  name="branch_area" id="selectArea">
+              <select name="area_id" class="custom-select" id="inputArea">
                 <option value="">Choose...</option>
-                <option value="1">Krishna Nagar</option>
-                <option value="2">Arjun Nagar</option>
+                  <?php foreach ($area as $row) : ?>
+                      <option value="<?php echo $row->area_id; ?>"><?php echo $row->area_name; ?></option>
+                  <?php endforeach; ?>
               </select>
-              <div class="text-danger"><?php echo form_error('branch_area'); ?></div>
+              <div class="text-danger"><?php echo form_error('area_id'); ?></div>
             </div>
           </div>
 
