@@ -40,7 +40,7 @@
         <table class="table table-hover text-center table-bordered table-sm table-head-fixed text-nowrap">
           <thead>
             <tr>
-              <th>Services</th>
+              <th>Action</th>
               <th>Username</th>
               <th>Name</th>
               <th>Contact #</th>
@@ -48,22 +48,12 @@
               <th>Address</th>
               <th>Area</th>
               <th>Status</th>
-              <th>Action</th>
+              <th colspan="3">Services</th>
             </tr>
           </thead>
           <tbody>
             <?php if(!empty($user)){ foreach($user as $row){ ?>
             <tr>
-              <td><?php echo !empty($row->cable) ? $row->cable : '-'; ?></td>
-              <td><?php echo $row->username; ?></td>
-              <td><?php echo $row->first_name .' '. $row->last_name; ?></td>
-              <td><?php echo $row->contact_no; ?></td>
-              <td><?php echo $row->email; ?></td>
-              <td><?php echo $row->bill_address; ?></td>
-              <td><?php echo $row->area_name; ?></td>
-              <td>
-                <?php echo ($row->user_status == 1) ? '<span class="badge badge-success">Active</span>' : '<span class="badge badge-danger">Inactive</span>'; ?>
-              </td>
               <td>
                 <div class="dropdown">
                   <a class="btn btn-secondary btn-xs dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -78,6 +68,18 @@
                   </div>
                 </div>
               </td>
+              <td><?php echo $row->username; ?></td>
+              <td><?php echo $row->first_name .' '. $row->last_name; ?></td>
+              <td><?php echo $row->contact_no; ?></td>
+              <td><?php echo $row->email; ?></td>
+              <td><?php echo $row->bill_address; ?></td>
+              <td><?php echo $row->area_name; ?></td>
+              <td>
+                <?php echo ($row->user_status == 1) ? '<span class="badge badge-success">Active</span>' : '<span class="badge badge-danger">Inactive</span>'; ?>
+              </td>
+              <td><?php echo !empty($row->cable) ? '<i class="fas fa-tv"></i> '.$row->cable.'' : '-'; ?></td>
+              <td><?php echo !empty($row->net) ? '<i class="fas fa-wifi"></i> '.$row->net.'' : '-'; ?></td>
+              <td><?php echo !empty($row->voip) ? '<i class="fas fa-phone-alt"></i> '.$row->voip.'' : '-'; ?></td>
             </tr>
           <?php }} else { ?>
             <tr>

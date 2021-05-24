@@ -27,8 +27,7 @@
 	              <button class="btn btn-primary float-right" name="submit" type="submit">Submit</button>
 	            </div>
 	          </div>
-	          <!-- /.card -->				
-
+	          <!-- /.card -->
 			<?php echo form_close(); ?>
 		</div>
 		<!-- /.col -->

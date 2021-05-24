@@ -75,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				$this->Operations_Model->create_user($formArray);
 				$this->session->set_flashdata('success', 'User Added Successfully');
-				redirect(base_url('Operations/assign_plan/' . $this->db->insert_id()));
+				redirect(base_url('User/assign_plan/' . $this->db->insert_id()));
 			}
 		}
 
@@ -87,6 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data['net'] = $this->Operations_Model->fetch_all_internet_plan();
 			$data['voip'] = $this->Operations_Model->fetch_all_voip();
 			$data['stb'] = $this->Operations_Model->fetch_all_stb();
+			$data['userstb'] = $this->Operations_Model->fetch_user_stb($user_id);
 
 			$this->form_validation->set_rules('plan_id', 'Internet Plan', 'required');
 
@@ -103,8 +104,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$services = array();
 				$services['user_id'] = $user_id;
 				$services['plan_id'] = $this->input->post('plan_id');
-				$services['voip_id'] = $this->input->post('voip_id');
-				$services['stb_id'] = $this->input->post('stb_id');
+				$services['voip_id'] = !empty($this->input->post('voip_id')) ? $this->input->post('voip_id') : NULL;
+				$services['stb_id'] = !empty($this->input->post('stb_id')) ? $this->input->post('stb_id') : NULL;
 				
 				$charges = array();
 				$charges['user_id'] = $user_id;
@@ -130,6 +131,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data['title'] = 'Additional STB';
 			$data['user'] = $this->Operations_Model->fetch_profile_detail($user_id);
 			$data['stb'] = $this->Operations_Model->fetch_all_stb();
+			$data['userstb'] = $this->Operations_Model->fetch_user_stb($user_id);
 
 			$this->form_validation->set_rules('stb_id', 'STB #', 'required');
 
@@ -144,8 +146,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			else
 			{
 				$formArray = array();
-				$formArray['stb_id'] = $this->input->post('stb_id');
 				$formArray['user_id'] = $user_id;
+				$formArray['stb_id'] = $this->input->post('stb_id');
+				$formArray['plan_id'] = NULL;
+				$formArray['voip_id'] = NULL;
 
 				$this->Operations_Model->additional_stb($formArray);
 				$this->session->set_flashdata('success', 'STB has been Added Successfully');
@@ -159,6 +163,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data = array();
 			$data['title'] = 'Assign Validity';
 			$data['user'] = $this->Operations_Model->fetch_profile_detail($user_id);
+			$data['userstb'] = $this->Operations_Model->fetch_user_stb($user_id);
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
