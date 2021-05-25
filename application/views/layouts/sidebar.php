@@ -39,14 +39,7 @@
               </a>
             </li>
 
-          <li class="nav-header">Administration Settings</li>
-
-            <li class="nav-item">
-              <a href="<?php echo base_url('Administration/area_list'); ?>" class="nav-link">
-                <i class="fas fa-building nav-icon"></i>
-                <p>User Area</p>
-              </a>
-            </li>
+          <li class="nav-header">Asset Settings</li>
 
             <li class="nav-item">
               <a href="<?php echo base_url('Administration/internet_list'); ?>" class="nav-link">
@@ -73,6 +66,15 @@
               <a href="<?php echo base_url('Administration/stb_list'); ?>" class="nav-link">
                 <i class="fas fa-hdd nav-icon"></i>
                 <p>Set-Top Box</p>
+              </a>
+            </li>
+
+          <li class="nav-header">Administration Settings</li>
+
+            <li class="nav-item">
+              <a href="<?php echo base_url('Administration/area_list'); ?>" class="nav-link">
+                <i class="fas fa-building nav-icon"></i>
+                <p>User Area</p>
               </a>
             </li>
 
