@@ -265,4 +265,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->insert('tbl_charges', $charges);
 		}
 
+		public function count_user()
+		{
+			return $this->db->get('tbl_user')->num_rows();
+		}
+
+		public function count_plan()
+		{
+			return $this->db->get('tbl_internet')->num_rows();
+		}
+
+		public function count_voip()
+		{
+			return $this->db->get('tbl_voip')->num_rows();
+		}
+
+		public function count_packs()
+		{
+			return $this->db->get('tbl_cable')->num_rows();
+		}
+
 	}

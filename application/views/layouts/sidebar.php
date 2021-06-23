@@ -28,6 +28,7 @@
               <a href="<?php echo base_url('User/user_list'); ?>" class="nav-link">
                 <i class="fas fa-users nav-icon"></i>
                 <p>Users</p>
+                <span class="right badge badge-danger"><?php echo $users; ?></span>
               </a>
             </li>
 
@@ -45,6 +46,7 @@
               <a href="<?php echo base_url('Administration/internet_list'); ?>" class="nav-link">
                 <i class="fas fa-wifi nav-icon"></i>
                 <p>Internet Plan</p>
+                <span class="right badge badge-danger"><?php echo $plans; ?></span>
               </a>
             </li>
 
@@ -52,6 +54,7 @@
               <a href="<?php echo base_url('Administration/voip_list'); ?>" class="nav-link">
                 <i class="fas fa-phone-alt nav-icon"></i>
                 <p>VoIP Plan</p>
+                <span class="right badge badge-danger"><?php echo $voips; ?></span>
               </a>
             </li>
 
@@ -59,6 +62,7 @@
               <a href="<?php echo base_url('Administration/package_list'); ?>" class="nav-link">
                 <i class="fas fa-tv nav-icon"></i>
                 <p>Cable Package</p>
+                <span class="right badge badge-danger"><?php echo $packs; ?></span>
               </a>
             </li>
 

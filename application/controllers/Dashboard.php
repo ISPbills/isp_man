@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		{
 			parent::__construct();
 			$this->logged_id();
+			$this->load->model('Operations_Model');
 		}
 
 		private function logged_id()
@@ -22,9 +23,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function index()
 		{
+
+			$data = array();
+			$data['users'] = $this->Operations_Model->count_user();
+			$data['plans'] = $this->Operations_Model->count_plan();
+			$data['voips'] = $this->Operations_Model->count_voip();
+			$data['packs'] = $this->Operations_Model->count_packs();
+
+
 			$this->load->view('layouts/header');
-			$this->load->view('layouts/sidebar');
+			$this->load->view('layouts/sidebar', $data);
 			$this->load->view('dashboard');
 			$this->load->view('layouts/footer');
 		}
+
 	}
