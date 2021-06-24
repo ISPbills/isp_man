@@ -25,7 +25,7 @@
       <!-- /.card-header -->
 
       <!-- form start -->
-      <?php echo form_open('Administration/create_area'); ?>
+      <?php echo form_open('create_area'); ?>
         <div class="card-body">
 
           <div class="form-row">

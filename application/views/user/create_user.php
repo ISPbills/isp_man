@@ -25,7 +25,7 @@
       <!-- /.card-header -->
       
       <!-- form start -->
-      <?php echo form_open('User/create_user'); ?>
+      <?php echo form_open('create_user'); ?>
         <div class="card-body">
           
           <div class="form-row">

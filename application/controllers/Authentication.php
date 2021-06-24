@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		{
 			if($this->session->userdata('authenticated'))
 			{
-				redirect('Dashboard/index');
+				redirect('dashboard');
 			}
 
 			$this->form_validation->set_rules('username', 'Username', 'required');
@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				$this->session->set_userdata($userdata);
 
-				redirect('Dashboard/index');
+				redirect('dashboard');
 
 			}
 			else

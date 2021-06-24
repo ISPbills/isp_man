@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 	/**
 	 * Auth Model
 	 */
@@ -18,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			else
 			{
-				return false;
+				return FALSE;
 			}
 		}
 	}

@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 	/**
 	 * Operations Controller
 	 */
@@ -9,7 +10,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		{
 			parent::__construct();
 			$this->logged_id();
-			$this->load->model('Operations_Model');
+			$this->load->model('User_Model');
+			$this->load->model('Internet_Model');
+			$this->load->model('Voip_Model');
+			$this->load->model('Stb_Model');
 		}
 
 		private function logged_id()
@@ -23,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function user_list()
 		{
 			$data = array();
-			$data['user'] = $this->Operations_Model->fetch_all_user();
+			$data['user'] = $this->User_Model->fetch_all_user();
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
@@ -35,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		{
 			// For Area Dropdown
 			$data = array();
-			$data['area'] = $this->Operations_Model->fetch_all_area();
+			$data['area'] = $this->User_Model->fetch_all_area();
 
 			$this->form_validation->set_rules('username', 'Username', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
@@ -73,9 +77,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$formArray['user_status'] = $this->input->post('user_status');
 				$formArray['connection_type'] = $this->input->post('connection_type');
 
-				$this->Operations_Model->create_user($formArray);
+				$this->User_Model->create_user($formArray);
 				$this->session->set_flashdata('success', 'User Added Successfully');
-				redirect(base_url('User/assign_plan/' . $this->db->insert_id()));
+				redirect(base_url('assign_plan/' . $this->db->insert_id()));
 			}
 		}
 
@@ -83,11 +87,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		{
 			$data = array();
 			$data['title'] = 'Assign Plan';
-			$data['user'] = $this->Operations_Model->fetch_profile_detail($user_id);
-			$data['net'] = $this->Operations_Model->fetch_all_internet_plan();
-			$data['voip'] = $this->Operations_Model->fetch_all_voip();
-			$data['stb'] = $this->Operations_Model->fetch_all_stb();
-			$data['userstb'] = $this->Operations_Model->fetch_user_stb($user_id);
+			$data['user'] = $this->User_Model->fetch_profile_detail($user_id);
+			$data['net'] = $this->Internet_Model->fetch_all_internet_plan();
+			$data['voip'] = $this->Voip_Model->fetch_all_voip();
+			$data['stb'] = $this->Stb_Model->fetch_all_stb();
+			$data['userstb'] = $this->User_Model->fetch_user_stb($user_id);
 
 			$this->form_validation->set_rules('plan_id', 'Internet Plan', 'required');
 
@@ -119,9 +123,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$charges['stb_refund'] = $this->input->post('stb_refund');
 				$charges['cable_wire'] = $this->input->post('cable_wire');
 
-				$this->Operations_Model->assign_plan($services, $charges);
+				$this->User_Model->assign_plan($services, $charges);
 				$this->session->set_flashdata('success', 'Plan has successfully been assigned');
-				redirect('User/assign_validity/' . $user_id);
+				redirect('assign_validity/' . $user_id);
 			}
 		}
 
@@ -129,9 +133,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		{
 			$data = array();
 			$data['title'] = 'Additional STB';
-			$data['user'] = $this->Operations_Model->fetch_profile_detail($user_id);
-			$data['stb'] = $this->Operations_Model->fetch_all_stb();
-			$data['userstb'] = $this->Operations_Model->fetch_user_stb($user_id);
+			$data['user'] = $this->User_Model->fetch_profile_detail($user_id);
+			$data['stb'] = $this->Stb_Model->fetch_all_stb();
+			$data['userstb'] = $this->User_Model->fetch_user_stb($user_id);
 
 			$this->form_validation->set_rules('stb_id', 'STB #', 'required');
 
@@ -151,9 +155,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$formArray['plan_id'] = NULL;
 				$formArray['voip_id'] = NULL;
 
-				$this->Operations_Model->additional_stb($formArray);
+				$this->User_Model->additional_stb($formArray);
 				$this->session->set_flashdata('success', 'STB has been Added Successfully');
-				redirect('User/user_list');
+				redirect('user_list');
 			}
 
 		}
@@ -162,8 +166,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		{
 			$data = array();
 			$data['title'] = 'Assign Validity';
-			$data['user'] = $this->Operations_Model->fetch_profile_detail($user_id);
-			$data['userstb'] = $this->Operations_Model->fetch_user_stb($user_id);
+			$data['user'] = $this->User_Model->fetch_profile_detail($user_id);
+			$data['userstb'] = $this->User_Model->fetch_user_stb($user_id);
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');

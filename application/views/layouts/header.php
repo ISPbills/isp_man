@@ -32,7 +32,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?php echo base_url('Dashboard/index'); ?>" class="nav-link">Home</a>
+        <a href="<?php echo base_url('dashboard'); ?>" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -165,7 +165,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Change Password</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<?php echo base_url('Authentication/logout'); ?>">Logout</a>
+          <a class="dropdown-item" href="<?php echo base_url('logout'); ?>">Logout</a>
         </div>
       </li>
     </ul>

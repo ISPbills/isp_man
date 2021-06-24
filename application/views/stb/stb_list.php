@@ -21,7 +21,7 @@
 
     <div class="card">
       <div class="card-header">
-        <a href="<?php echo base_url('Administration/create_stb'); ?>" class="btn btn-sm btn-warning">Add Set-Top Box</a>
+        <a href="<?php echo base_url('create_stb'); ?>" class="btn btn-sm btn-warning">Add Set-Top Box</a>
         <div class="card-tools">
           <div class="input-group input-group-sm" style="width: 150px;">
             <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
@@ -64,8 +64,8 @@
                     Action
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="<?php echo base_url('Administration/update_stb/' . $row->stb_id); ?>">Edit</a>
-                    <a class="dropdown-item" href="<?php echo base_url('Administration/delete_stb/' . $row->stb_id); ?>">Delete</a>
+                    <a class="dropdown-item" href="<?php echo base_url('update_stb/' . $row->stb_id); ?>">Edit</a>
+                    <a class="dropdown-item" href="<?php echo base_url('delete_stb/' . $row->stb_id); ?>">Delete</a>
                   </div>
                 </div>
               </td>

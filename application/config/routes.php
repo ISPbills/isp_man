@@ -52,3 +52,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Authentication/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// Authentication
+$route['login'] = 'Authentication/login';
+$route['logout'] = 'Authentication/logout';
+
+// Dashboard
+$route['dashboard'] = 'Dashboard/index';
+
+// User
+$route['user_list'] = 'User/user_list';
+$route['create_user'] = 'User/create_user';
+$route['assign_plan/(:num)'] = 'User/assign_plan/$1';
+$route['assign_validity/(:num)'] = 'User/assign_validity/$1';
+
+// STB
+$route['stb_list'] = 'Stb/stb_list';
+$route['create_stb'] = 'Stb/create_stb';
+
+// Cable Package
+$route['package_list'] = 'Package/package_list';
+$route['create_package'] = 'Package/create_package';
+
+// Internet
+$route['internet_list'] = 'Internet/internet_list';
+$route['create_internet'] = 'Internet/create_internet';
+$route['update_internet/(:num)'] = 'Internet/update_internet/$1';
+
+// VoIP
+$route['voip_list'] = 'Voip/voip_list';
+$route['create_voip'] = 'Voip/create_voip';
+$route['update_voip/(:num)'] = 'Voip/update_voip/$1';
+
+// Area
+$route['area_list'] = 'Area/area_list';
+$route['create_area'] = 'Area/create_area';
+$route['update_area/(:num)'] = 'Area/update_area/$1';
+
+// Branch
+$route['branch_list'] = 'Branch/branch_list';
+$route['create_branch'] = 'Branch/create_branch';
+$route['update_branch/(:num)'] = 'Branch/update_branch/$1';
+
+// Staff
+$route['staff_list'] = 'Staff/staff_list';
+$route['create_staff'] = 'Staff/create_staff';
+$route['update_staff/(:num)'] = 'Staff/update_staff/$1';
+$route['delete_staff/(:num)'] = 'Staff/delete_staff/$1';

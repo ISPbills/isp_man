@@ -29,7 +29,7 @@
         <div class="alert alert-danger"><?php echo $this->session->flashdata('message'); ?></div>
       <?php } ?>
 
-      <?php echo form_open('authentication/login'); ?>
+      <?php echo form_open('login'); ?>
 
         <div class="input-group mb-3">
           <input type="text" name="username" class="form-control" placeholder="Username" value="<?php echo set_value('username'); ?>">

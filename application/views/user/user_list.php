@@ -21,7 +21,7 @@
 
     <div class="card">
       <div class="card-header">
-        <a href="<?php echo base_url('User/create_user'); ?>" class="btn btn-sm btn-warning">Add User</a>
+        <a href="<?php echo base_url('create_user'); ?>" class="btn btn-sm btn-warning">Add User</a>
         <div class="card-tools">
           <div class="input-group input-group-sm" style="width: 150px;">
             <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
@@ -61,9 +61,9 @@
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <?php if(empty($row->plan_id)): ?>
-                    <a class="dropdown-item" href="<?php echo base_url('User/assign_plan/' . $row->user_id); ?>">Assign Plans</a>
+                    <a class="dropdown-item" href="<?php echo base_url('assign_plan/' . $row->user_id); ?>">Assign Plans</a>
                     <?php else: ?>
-                    <a class="dropdown-item" href="<?php echo base_url('User/assign_validity/' . $row->user_id); ?>">Assign Validity</a>
+                    <a class="dropdown-item" href="<?php echo base_url('assign_validity/' . $row->user_id); ?>">Assign Validity</a>
                   <?php endif; ?>
                   </div>
                 </div>

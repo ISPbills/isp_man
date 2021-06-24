@@ -25,7 +25,7 @@
       <!-- /.card-header -->
       
       <!-- form start -->
-      <?php echo form_open('Administration/update_internet/' . $net->plan_id); ?>
+      <?php echo form_open('update_internet/' . $net->plan_id); ?>
         <div class="card-body">
           
           <div class="form-row">
