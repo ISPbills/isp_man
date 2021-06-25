@@ -101,6 +101,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $user->row();
 		}
 
+		public function fetch_user_services()
+		{
+			
+		}
+
 		public function assign_plan($services, $charges)
 		{
 			$this->db->insert('tbl_services', $services);

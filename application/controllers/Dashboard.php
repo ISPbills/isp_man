@@ -10,7 +10,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		{
 			parent::__construct();
 			$this->logged_id();
-			$this->load->model('Operations_Model');
 		}
 
 		private function logged_id()

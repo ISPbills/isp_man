@@ -11,6 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			parent::__construct();
 			$this->logged_id();
 			$this->load->model('User_Model');
+			$this->load->model('Area_Model');
 			$this->load->model('Internet_Model');
 			$this->load->model('Voip_Model');
 			$this->load->model('Stb_Model');
@@ -39,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		{
 			// For Area Dropdown
 			$data = array();
-			$data['area'] = $this->User_Model->fetch_all_area();
+			$data['area'] = $this->Area_Model->fetch_all_area();
 
 			$this->form_validation->set_rules('username', 'Username', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
@@ -168,6 +169,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data['title'] = 'Assign Validity';
 			$data['user'] = $this->User_Model->fetch_profile_detail($user_id);
 			$data['userstb'] = $this->User_Model->fetch_user_stb($user_id);
+			$data['services'] = $this->User_Model->fetch_user_services($user_id);
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
