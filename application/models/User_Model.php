@@ -21,7 +21,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->where('tbl_services.user_id', $user_id);
 			$stb = $this->db->get();
 			return $stb->result();
-
 		}
 
 		public function additional_stb($formArray)

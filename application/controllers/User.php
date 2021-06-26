@@ -108,7 +108,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			{
 				$services = array();
 				$services['user_id'] = $user_id;
-				$services['plan_id'] = $this->input->post('plan_id');
+				$services['plan_id'] = !empty($this->input->post('plan_id')) ? $this->input->post('plan_id') : NULL;
 				$services['voip_id'] = !empty($this->input->post('voip_id')) ? $this->input->post('voip_id') : NULL;
 				$services['stb_id'] = !empty($this->input->post('stb_id')) ? $this->input->post('stb_id') : NULL;
 				
