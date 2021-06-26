@@ -60,10 +60,10 @@
                     Action
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <?php if(empty($row->plan_id)): ?>
-                    <a class="dropdown-item" href="<?php echo base_url('assign_plan/' . $row->user_id); ?>">Assign Plans</a>
+                    <?php if(empty($row->service_id)): ?>
+                      <a class="dropdown-item" href="<?php echo base_url('assign_plan/' . $row->user_id); ?>">Assign Plans</a>
                     <?php else: ?>
-                    <a class="dropdown-item" href="<?php echo base_url('assign_validity/' . $row->user_id); ?>">Assign Validity</a>
+                      <a class="dropdown-item" href="<?php echo base_url('assign_validity/' . $row->user_id); ?>">Assign Validity</a>
                   <?php endif; ?>
                   </div>
                 </div>

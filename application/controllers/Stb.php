@@ -65,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				$this->Stb_Model->create_stb($formArray);
 				$this->session->set_flashdata('success', 'STB Added Successfully');
-				redirect('Administration/stb_list');
+				redirect('stb_list');
 			}
 
 		}

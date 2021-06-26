@@ -32,6 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function fetch_all_user()
 		{
 			$fields = array(
+							'tbl_services.service_id',
 							'tbl_user.user_id',
 							'count(tbl_services.plan_id) as net',
 							'count(tbl_services.voip_id) as voip',
@@ -68,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $user->result();
 		}
 
-		public function fetch_profile_detail($user_id) // Left Side Profile Strip
+		public function fetch_user_detail($user_id) // Left Side Profile Strip
 		{
 			$fields = array(
 							'tbl_user.user_id',
@@ -99,11 +100,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->where('tbl_user.user_id', $user_id);
 			$user = $this->db->get();
 			return $user->row();
-		}
-
-		public function fetch_user_services()
-		{
-			
 		}
 
 		public function assign_plan($services, $charges)

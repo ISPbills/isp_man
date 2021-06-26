@@ -35,9 +35,9 @@
           <div class="btn-group btn-block" role="group">
               <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
               <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="<?php echo base_url('User/assign_validity/' . $user->user_id); ?>">Renew Plan</a>
+                <a class="dropdown-item" href="<?php echo base_url('assign_validity/' . $user->user_id); ?>">Renew Plan</a>
                 <a class="dropdown-item" href="#">Update Profile</a>
-                <a class="dropdown-item" href="<?php echo base_url('User/additional_stb/' . $user->user_id); ?>">Assign Additional STB</a>
+                <a class="dropdown-item" href="<?php echo base_url('additional_stb/' . $user->user_id); ?>">Assign Additional STB</a>
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@
 
             <strong><i class="fas fa-hdd mr-1"></i>STB #</strong>
             <p class="text-muted">
-              <?php if(!empty($userstb)){ foreach($userstb as $row){ ?>
+              <?php if(!empty($stb)){ foreach($stb as $row){ ?>
                 <span><?php echo $row->stb_no.' - '.$row->vendor_name.' - Rs.'.$row->pack_rate; ?></span><br>
               <?php }} else { ?>
                 <span>No STB Assigned!</span>

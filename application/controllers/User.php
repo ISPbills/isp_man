@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		{
 			$data = array();
 			$data['title'] = 'Assign Plan';
-			$data['user'] = $this->User_Model->fetch_profile_detail($user_id);
+			$data['user'] = $this->User_Model->fetch_user_detail($user_id);
 			$data['net'] = $this->Internet_Model->fetch_all_internet_plan();
 			$data['voip'] = $this->Voip_Model->fetch_all_voip();
 			$data['stb'] = $this->Stb_Model->fetch_all_stb();
@@ -134,7 +134,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		{
 			$data = array();
 			$data['title'] = 'Additional STB';
-			$data['user'] = $this->User_Model->fetch_profile_detail($user_id);
+			$data['user'] = $this->User_Model->fetch_user_detail($user_id);
 			$data['stb'] = $this->Stb_Model->fetch_all_stb();
 			$data['userstb'] = $this->User_Model->fetch_user_stb($user_id);
 
@@ -166,15 +166,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function assign_validity($user_id)
 		{
 			$data = array();
-			$data['title'] = 'Assign Validity';
-			$data['user'] = $this->User_Model->fetch_profile_detail($user_id);
-			$data['userstb'] = $this->User_Model->fetch_user_stb($user_id);
-			$data['services'] = $this->User_Model->fetch_user_services($user_id);
+			$data['title'] = 'Select Service';
+			$data['user'] = $this->User_Model->fetch_user_detail($user_id);
+			$data['stb'] = $this->User_Model->fetch_user_stb($user_id);
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
 			$this->load->view('user/profile_base', $data);
-			$this->load->view('user/profile_validity_add');
+			$this->load->view('user/profile_select_service');
 			$this->load->view('layouts/footer');
 		}
 	}
