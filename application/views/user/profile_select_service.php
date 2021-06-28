@@ -57,7 +57,7 @@
                     </tr>
                   <?php endif; ?>
 
-                  <?php if(!empty($stb)){ foreach($stb as $row){ ?>
+                  <?php foreach($userstb as $row): ?>
                     <tr>
                         <td><?php echo $row->stb_no.' - '.$row->vendor_name.' - Rs.'.$row->pack_rate; ?></td>
                         <td><span class="badge badge-success">Active</span></td>
@@ -76,9 +76,7 @@
                           </div>
                         </td>
                     </tr>
-                  <?php }} else { ?>
-                    <tr><td>No STB Assigned!</td></tr>
-                  <?php } ?>
+                  <?php endforeach; ?>
 
                 </tbody>
             </table>

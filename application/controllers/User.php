@@ -168,7 +168,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data = array();
 			$data['title'] = 'Select Service';
 			$data['user'] = $this->User_Model->fetch_user_detail($user_id);
-			$data['stb'] = $this->User_Model->fetch_user_stb($user_id);
+			$data['userstb'] = $this->User_Model->fetch_user_stb($user_id);
 
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');

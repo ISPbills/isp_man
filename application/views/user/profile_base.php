@@ -74,7 +74,7 @@
 
             <strong><i class="fas fa-hdd mr-1"></i>STB #</strong>
             <p class="text-muted">
-              <?php if(!empty($stb)){ foreach($stb as $row){ ?>
+              <?php if(!empty($userstb)){ foreach($userstb as $row){ ?>
                 <span><?php echo $row->stb_no.' - '.$row->vendor_name.' - Rs.'.$row->pack_rate; ?></span><br>
               <?php }} else { ?>
                 <span>No STB Assigned!</span>

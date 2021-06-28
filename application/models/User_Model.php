@@ -11,23 +11,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->insert('tbl_user', $formArray);
 		}
 
-		public function fetch_user_stb($user_id)
-		{
-			$this->db->select('*');
-			$this->db->from('tbl_services');
-			$this->db->join('tbl_user', 'tbl_user.user_id = tbl_services.user_id', 'right');
-			$this->db->join('tbl_stb', 'tbl_stb.stb_id = tbl_services.stb_id', 'left');
-			$this->db->join('tbl_cable', 'tbl_cable.pack_id = tbl_stb.pack_id', 'left');
-			$this->db->where('tbl_services.user_id', $user_id);
-			$stb = $this->db->get();
-			return $stb->result();
-		}
-
-		public function additional_stb($formArray)
-		{
-			$this->db->insert('tbl_services', $formArray);
-		}
-
 		public function fetch_all_user()
 		{
 			$fields = array(
@@ -99,6 +82,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->where('tbl_user.user_id', $user_id);
 			$user = $this->db->get();
 			return $user->row();
+		}
+
+		public function fetch_user_stb($user_id)
+		{
+			$this->db->select('*');
+			$this->db->from('tbl_services');
+			$this->db->join('tbl_user', 'tbl_user.user_id = tbl_services.user_id', 'right');
+			$this->db->join('tbl_stb', 'tbl_stb.stb_id = tbl_services.stb_id', 'left');
+			$this->db->join('tbl_cable', 'tbl_cable.pack_id = tbl_stb.pack_id', 'left');
+			$this->db->where('tbl_services.user_id', $user_id);
+			$this->db->group_by('tbl_services.stb_id');
+			$stb = $this->db->get();
+			return $stb->result();
+		}
+
+		public function additional_stb($formArray)
+		{
+			$this->db->insert('tbl_services', $formArray);
 		}
 
 		public function assign_plan($services, $charges)
