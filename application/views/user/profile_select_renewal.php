@@ -83,7 +83,10 @@
           </div>
         </div>
       </div>
+      <!-- /.col -->
 
     </div>
-  </div>
+    <!-- /.row -->
+  </div><!-- /.container-fluid -->
 </section>
+<!-- /.content -->

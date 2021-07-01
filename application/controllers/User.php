@@ -84,6 +84,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 
+		public function select_assign($user_id)
+		{
+
+			$data = array();
+			$data['title'] = 'Assign Services';
+			$data['user'] = $this->User_Model->fetch_user_detail($user_id);
+			$data['net'] = $this->Internet_Model->fetch_all_internet_plan();
+			$data['voip'] = $this->Voip_Model->fetch_all_voip();
+			$data['stb'] = $this->Stb_Model->fetch_all_stb();
+			$data['userstb'] = $this->User_Model->fetch_user_stb($user_id);
+
+			$this->load->view('layouts/header');
+			$this->load->view('layouts/sidebar');
+			$this->load->view('user/profile_base', $data);
+			$this->load->view('user/profile_select_assign');
+			$this->load->view('layouts/footer');
+
+		}
+
 		public function assign_plan($user_id)
 		{
 			$data = array();
@@ -173,7 +192,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
 			$this->load->view('user/profile_base', $data);
-			$this->load->view('user/profile_select_service');
+			$this->load->view('user/profile_select_renewal');
 			$this->load->view('layouts/footer');
 		}
 	}

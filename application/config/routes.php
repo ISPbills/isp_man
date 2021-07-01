@@ -63,6 +63,7 @@ $route['dashboard'] = 'Dashboard/index';
 // User
 $route['user_list'] = 'User/user_list';
 $route['create_user'] = 'User/create_user';
+$route['select_assign/(:num)'] = 'User/select_assign/$1';
 $route['assign_plan/(:num)'] = 'User/assign_plan/$1';
 $route['assign_validity/(:num)'] = 'User/assign_validity/$1';
 $route['additional_stb/(:num)'] = 'User/additional_stb/$1';
