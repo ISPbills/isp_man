@@ -77,5 +77,24 @@
   });
 </script>
 
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('#stb_no').on('change', function(){
+           var stb_no = $('#stb_no').val();
+           if(stb_no != '')
+           {
+                $.ajax({
+                     url:"<?php echo base_url('stb_availability'); ?>",
+                     method:"POST",
+                     data:{stb_no:stb_no},
+                     success:function(data){
+                          $('#stb_checked').html(data);
+                     }
+                });
+           }
+      });
+  });
+</script>
+
 </body>
 </html>

@@ -97,12 +97,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $stb->result();
 		}
 
-		public function additional_stb($formArray)
-		{
-			$this->db->insert('tbl_services', $formArray);
-		}
-
-		public function assign_plan($services, $charges)
+		public function add_cable($services, $charges)
 		{
 			$this->db->insert('tbl_services', $services);
 			$this->db->insert('tbl_charges', $charges);

@@ -84,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 
-		public function select_assign($user_id)
+		public function choose_service($user_id)
 		{
 
 			$data = array();
@@ -98,86 +98,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
 			$this->load->view('user/profile_base', $data);
-			$this->load->view('user/profile_select_assign');
+			$this->load->view('user/choose_service');
 			$this->load->view('layouts/footer');
 
 		}
 
-		public function assign_plan($user_id)
+		public function stb_availability()
 		{
+			if($this->Stb_Model->stb_availability($this->input->post('stb_no')))
+			{
+				echo '<strong class="text-danger">STB Not Available</strong>';
+			}
+			else
+			{
+				echo '<strong class="text-success">STB Available</strong>';
+			}
+		}
+
+		public function add_cable($user_id)
+		{
+			// $data['stb_id'] = $this->Stb_Model->fetch_stb_id($this->input->post('stb_no'));
+			// echo $stb_id->stb_id;
+
 			$data = array();
-			$data['title'] = 'Assign Plan';
+			$data['title'] = 'Cable TV Connection';
 			$data['user'] = $this->User_Model->fetch_user_detail($user_id);
-			$data['net'] = $this->Internet_Model->fetch_all_internet_plan();
-			$data['voip'] = $this->Voip_Model->fetch_all_voip();
 			$data['stb'] = $this->Stb_Model->fetch_all_stb();
 			$data['userstb'] = $this->User_Model->fetch_user_stb($user_id);
 
-			$this->form_validation->set_rules('plan_id', 'Internet Plan', 'required');
+			$this->form_validation->set_rules('stb_no', 'STB #', 'required');
 
 			if($this->form_validation->run() == FALSE)
 			{
 				$this->load->view('layouts/header');
 				$this->load->view('layouts/sidebar');
 				$this->load->view('user/profile_base', $data);
-				$this->load->view('user/profile_plan_add');
+				$this->load->view('user/add_cable');
 				$this->load->view('layouts/footer');
 			}
 			else
 			{
+				$stb_id = $this->Stb_Model->fetch_stb_id($this->input->post('stb_no'));
 				$services = array();
 				$services['user_id'] = $user_id;
-				$services['plan_id'] = !empty($this->input->post('plan_id')) ? $this->input->post('plan_id') : NULL;
-				$services['voip_id'] = !empty($this->input->post('voip_id')) ? $this->input->post('voip_id') : NULL;
 				$services['stb_id'] = !empty($this->input->post('stb_id')) ? $this->input->post('stb_id') : NULL;
-				
+				$services['plan_id'] = NULL;
+				$services['voip_id'] = NULL;
+
 				$charges = array();
 				$charges['user_id'] = $user_id;
-				$charges['install_charge'] = $this->input->post('install_charge');
-				$charges['install_refund'] = $this->input->post('install_refund');
-				$charges['router_charge'] = $this->input->post('router_charge');
-				$charges['router_refund'] = $this->input->post('router_refund');
-				$charges['voip_charge'] = $this->input->post('voip_charge');
-				$charges['voip_refund'] = $this->input->post('voip_refund');
 				$charges['stb_charge'] = $this->input->post('stb_charge');
 				$charges['stb_refund'] = $this->input->post('stb_refund');
 				$charges['cable_wire'] = $this->input->post('cable_wire');
 
-				$this->User_Model->assign_plan($services, $charges);
+				$this->User_Model->add_cable($services, $charges);
 				$this->session->set_flashdata('success', 'Plan has successfully been assigned');
 				redirect('assign_validity/' . $user_id);
-			}
-		}
-
-		public function additional_stb($user_id)
-		{
-			$data = array();
-			$data['title'] = 'Additional STB';
-			$data['user'] = $this->User_Model->fetch_user_detail($user_id);
-			$data['stb'] = $this->Stb_Model->fetch_all_stb();
-			$data['userstb'] = $this->User_Model->fetch_user_stb($user_id);
-
-			$this->form_validation->set_rules('stb_id', 'STB #', 'required');
-
-			if($this->form_validation->run() == FALSE)
-			{
-				$this->load->view('layouts/header');
-				$this->load->view('layouts/sidebar');
-				$this->load->view('user/profile_base', $data);
-				$this->load->view('user/profile_additional_stb');
-				$this->load->view('layouts/footer');
-			}
-			else
-			{
-				$formArray = array();
-				$formArray['user_id'] = $user_id;
-				$formArray['stb_id'] = $this->input->post('stb_id');
-				$formArray['plan_id'] = NULL;
-				$formArray['voip_id'] = NULL;
-
-				$this->User_Model->additional_stb($formArray);
-				$this->session->set_flashdata('success', 'STB has been Added Successfully');
-				redirect('user_list');
 			}
 
 		}
@@ -192,7 +168,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
 			$this->load->view('user/profile_base', $data);
-			$this->load->view('user/profile_select_renewal');
+			$this->load->view('user/choose_renewals');
 			$this->load->view('layouts/footer');
 		}
 	}
