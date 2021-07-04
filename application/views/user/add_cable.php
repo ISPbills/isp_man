@@ -9,6 +9,7 @@
                 <div class="form-group col-md">
                   <label for="stbNo">STB #</label>
                     <input type="text" name="stb_no" id="stb_no" class="form-control" placeholder="Enter STB #">
+                    <div class="text-danger"><?php echo form_error('stb_no'); ?></div>
                     <span id="stb_checked"></span>
                 </div>
               </div>

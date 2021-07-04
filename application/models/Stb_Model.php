@@ -39,7 +39,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->select('stb_id');
 			$this->db->from('tbl_stb');
 			$this->db->where('stb_no', $stb_no);
-			return $this->db->get()->result();
+			$result = $this->db->get();
+			return $result->row();
 		}
 
 	}
