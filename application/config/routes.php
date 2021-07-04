@@ -66,6 +66,9 @@ $route['create_user'] = 'User/create_user';
 $route['choose_service/(:num)'] = 'User/choose_service/$1';
 $route['stb_availability'] = 'User/stb_availability';
 $route['add_cable/(:num)'] = 'User/add_cable/$1';
+$route['add_net/(:num)'] = 'User/add_net/$1';
+$route['add_voip/(:num)'] = 'User/add_voip/$1';
+
 $route['assign_validity/(:num)'] = 'User/assign_validity/$1';
 
 // STB

@@ -117,9 +117,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function add_cable($user_id)
 		{
-			// $result = $this->Stb_Model->fetch_stb_id('123');
-			// echo $result->stb_id;
-
 			$data = array();
 			$data['title'] = 'Cable TV Connection';
 			$data['user'] = $this->User_Model->fetch_user_detail($user_id);
@@ -155,6 +152,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->session->set_flashdata('success', 'Plan has successfully been assigned');
 				redirect('assign_validity/' . $user_id);
 			}
+		}
+
+		public function add_net()
+		{
+
+		}
+
+		public function add_voip()
+		{
+			
 		}
 
 		public function assign_validity($user_id)

@@ -61,7 +61,7 @@
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <?php if(empty($row->service_id)): ?>
-                      <a class="dropdown-item" href="<?php echo base_url('choose_service/' . $row->user_id); ?>">Assign Plans</a>
+                      <a class="dropdown-item" href="<?php echo base_url('choose_service/' . $row->user_id); ?>">Assign Services</a>
                     <?php else: ?>
                       <a class="dropdown-item" href="<?php echo base_url('assign_validity/' . $row->user_id); ?>">Assign Validity</a>
                   <?php endif; ?>
