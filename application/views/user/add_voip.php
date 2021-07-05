@@ -9,12 +9,9 @@
               <div class="form-row">
                 <div class="form-group col-md">
                   <label for="selectVoipNo">VoIP #</label>
-                  <select name="voip_id" class="custom-select" id="selectVoipNo">
-                    <option value="">Choose...</option>
-                      <?php foreach ($voip as $row) : ?>
-                          <option value="<?php echo $row->voip_id; ?>"><?php echo $row->voip_no.' - '.$row->vendor_name; ?></option>
-                      <?php endforeach; ?>
-                  </select>
+                    <input type="text" name="voip_no" id="voip_no" class="form-control">
+                    <div class="text-danger"><?php echo form_error('voip_no'); ?></div>
+                    <span id="voip_checked"></span>
                 </div>
               </div>
               <div class="form-row">
@@ -29,6 +26,10 @@
               </div>
             </div>
             <!-- /.card-body -->
+            <div class="card-footer">
+              <button class="btn btn-primary float-right" name="submit" type="submit">Submit</button>
+            </div>
+          </div>
           </div>
           <!-- /.card -->
 

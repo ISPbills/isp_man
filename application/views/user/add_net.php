@@ -1,5 +1,5 @@
       <div class="col-md">
-        <?php echo form_open('User/assign_plan/' . $user->user_id); ?>
+        <?php echo form_open('User/add_net/' . $user->user_id); ?>
 
           <div class="card card-info">
             <div class="card-header">
@@ -40,6 +40,10 @@
               </div>
             </div>
             <!-- /.card-body -->
+            <div class="card-footer">
+              <button class="btn btn-primary float-right" name="submit" type="submit">Submit</button>
+            </div>
+          </div>
           </div>
           <!-- /.card -->
 

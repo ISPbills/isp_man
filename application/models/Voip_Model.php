@@ -27,4 +27,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->where('voip_id', $voip_id);
 			$this->db->update('tbl_voip', $formArray);
 		}
+
+		public function voip_availability($voip_no)
+		{
+			$this->db->where('voip_no', $voip_no);
+			$query = $this->db->get('tbl_voip');
+			
+			if($query->num_rows() > 0)
+			{
+				return TRUE;
+			}
+			else
+			{
+				return FALSE;
+			}
+		}
+
 	}

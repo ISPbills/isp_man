@@ -100,6 +100,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function add_cable($services, $charges)
 		{
 			$this->db->insert('tbl_services', $services);
-			$this->db->insert('tbl_charges', $charges);
+			$this->db->insert('tbl_charges_cable', $charges);
 		}
+
+		public function add_net($services, $charges)
+		{
+			$this->db->insert('tbl_services', $services);
+			$this->db->insert('tbl_charges_net', $charges);
+		}
+
+		public function add_voip($services, $charges)
+		{
+			$this->db->insert('tbl_services', $services);
+			$this->db->insert('tbl_charges_voip', $charges);
+		}
+
 	}

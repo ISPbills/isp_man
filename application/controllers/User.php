@@ -154,14 +154,93 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 
-		public function add_net()
+		public function add_net($user_id)
 		{
+			$data = array();
+			$data['title'] = 'Broadband Connection';
+			$data['user'] = $this->User_Model->fetch_user_detail($user_id);
+			$data['net'] = $this->Internet_Model->fetch_all_internet_plan();
+			$data['userstb'] = $this->User_Model->fetch_user_stb($user_id);
 
+			$this->form_validation->set_rules('plan_id', 'Internet Plan', 'required');
+
+			if($this->form_validation->run() == FALSE)
+			{
+				$this->load->view('layouts/header');
+				$this->load->view('layouts/sidebar');
+				$this->load->view('user/profile_base', $data);
+				$this->load->view('user/add_net');
+				$this->load->view('layouts/footer');
+			}
+			else
+			{
+				$services = array();
+				$services['user_id'] = $user_id;
+				$services['stb_id'] = NULL;
+				$services['plan_id'] = $this->input->post('plan_id');
+				$services['voip_id'] = NULL;
+
+				$charges = array();
+				$charges['user_id'] = $user_id;
+				$charges['install_charge'] = $this->input->post('install_charge');
+				$charges['install_refund'] = $this->input->post('install_refund');
+				$charges['router_charge'] = $this->input->post('router_charge');
+				$charges['router_refund'] = $this->input->post('router_refund');
+
+				$this->User_Model->add_net($services, $charges);
+				$this->session->set_flashdata('success', 'Plan has successfully been assigned');
+				redirect('assign_validity/' . $user_id);
+			}
 		}
 
-		public function add_voip()
+		public function voip_availability()
 		{
-			
+			if($this->Voip_Model->voip_availability($this->input->post('voip_no')))
+			{
+				echo '<strong class="text-danger">VoIP Unavailable</strong>';
+			}
+			else
+			{
+				echo '<strong class="text-success">VoIP Available</strong>';
+			}
+		}
+
+		public function add_voip($user_id)
+		{
+			$data = array();
+			$data['title'] = 'VoIP Connection';
+			$data['user'] = $this->User_Model->fetch_user_detail($user_id);
+			$data['net'] = $this->Internet_Model->fetch_all_internet_plan();
+			$data['voip'] = $this->Voip_Model->fetch_all_voip();
+			$data['userstb'] = $this->User_Model->fetch_user_stb($user_id);
+
+			$this->form_validation->set_rules('plan_id', 'Internet Plan', 'required');
+
+			if($this->form_validation->run() == FALSE)
+			{
+				$this->load->view('layouts/header');
+				$this->load->view('layouts/sidebar');
+				$this->load->view('user/profile_base', $data);
+				$this->load->view('user/add_voip');
+				$this->load->view('layouts/footer');
+			}
+			else
+			{
+				$services = array();
+				$services['user_id'] = $user_id;
+				$services['stb_id'] = NULL;
+				$services['plan_id'] = $this->input->post('plan_id');
+				$services['voip_id'] = NULL;
+
+				$charges = array();
+				$charges['user_id'] = $user_id;
+				$charges['voip_charge'] = $this->input->post('voip_charge');
+				$charges['voip_refund'] = $this->input->post('voip_refund');
+
+				$this->User_Model->add_voip($services, $charges);
+				$this->session->set_flashdata('success', 'Plan has successfully been assigned');
+				redirect('assign_validity/' . $user_id);
+			}
 		}
 
 		public function assign_validity($user_id)

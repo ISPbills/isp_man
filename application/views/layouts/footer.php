@@ -96,5 +96,24 @@
   });
 </script>
 
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('#voip_no').on('change', function(){
+           var voip_no = $('#voip_no').val();
+           if(voip_no != '')
+           {
+                $.ajax({
+                     url:"<?php echo base_url('voip_availability'); ?>",
+                     method:"POST",
+                     data:{voip_no:voip_no},
+                     success:function(data){
+                          $('#voip_checked').html(data);
+                     }
+                });
+           }
+      });
+  });
+</script>
+
 </body>
 </html>

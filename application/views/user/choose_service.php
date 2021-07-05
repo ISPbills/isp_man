@@ -34,7 +34,7 @@
                   <td><span class="badge badge-success">2</span></td>
                   <td class="">
                     <div class="btn-group btn-group-sm">
-                      <a href="#" class="btn btn-info"><i class="fas fa-plus-circle"></i></a>
+                      <a href="<?php echo base_url('add_net/' . $user->user_id); ?>" class="btn btn-info"><i class="fas fa-plus-circle"></i></a>
                       <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                     </div>
                   </td>
@@ -44,7 +44,7 @@
                   <td><span class="badge badge-success">2</span></td>
                   <td class="">
                     <div class="btn-group btn-group-sm">
-                      <a href="#" class="btn btn-info"><i class="fas fa-plus-circle"></i></a>
+                      <a href="<?php echo base_url('add_voip/' . $user->user_id); ?>" class="btn btn-info"><i class="fas fa-plus-circle"></i></a>
                       <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                     </div>
                   </td>
