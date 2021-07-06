@@ -229,7 +229,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$services = array();
 				$services['user_id'] = $user_id;
 				$services['stb_id'] = NULL;
-				$services['plan_id'] = $this->input->post('plan_id');
+				$services['plan_id'] = NULL;
 				$services['voip_id'] = NULL;
 
 				$charges = array();
