@@ -210,7 +210,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data = array();
 			$data['title'] = 'VoIP Connection';
 			$data['user'] = $this->User_Model->fetch_user_detail($user_id);
-			$data['net'] = $this->Internet_Model->fetch_all_internet_plan();
 			$data['voip'] = $this->Voip_Model->fetch_all_voip();
 			$data['userstb'] = $this->User_Model->fetch_user_stb($user_id);
 
@@ -226,6 +225,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			else
 			{
+				$res = $this->Voip_Model->fetch_voip_id($this->input->post('voip_no')); // Getting STB ID from STB Number
 				$services = array();
 				$services['user_id'] = $user_id;
 				$services['stb_id'] = NULL;

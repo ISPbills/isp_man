@@ -37,7 +37,9 @@
               <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                 <a class="dropdown-item" href="<?php echo base_url('assign_validity/' . $user->user_id); ?>">Renew Plan</a>
                 <a class="dropdown-item" href="#">Update Profile</a>
-                <a class="dropdown-item" href="<?php echo base_url('add_cable/' . $user->user_id); ?>">Assign Additional STB</a>
+                <a class="dropdown-item" href="<?php echo base_url('add_cable/' . $user->user_id); ?>">Add STB</a>
+                <a class="dropdown-item" href="<?php echo base_url('add_net/' . $user->user_id); ?>">Add Internet Plan</a>
+                <a class="dropdown-item" href="<?php echo base_url('add_voip/' . $user->user_id); ?>">Add VoIP Number</a>
               </div>
             </div>
           </div>
@@ -55,31 +57,32 @@
             <strong><i class="fas fa-map-marker-alt mr-1"></i>Address</strong>
             <p class="text-muted"><?php echo $user->bill_address .', '. $user->area_name; ?></p>
 
-              <hr>
+            <hr>
 
             <strong><i class="fas fa-mobile mr-1"></i>Contact #</strong>
             <p class="text-muted"><?php echo $user->contact_no; ?></p>
 
+            <?php if(!empty($user->plan_id)): ?>
               <hr>
+              <strong><i class="fas fa-wifi mr-1"></i>Internet Plan</strong>
+              <p class="text-muted"><?php echo $user->plan_name; ?></p>
+            <?php endif; ?>
 
-            <strong><i class="fas fa-wifi mr-1"></i>Internet Plan</strong>
-            <p class="text-muted"><?php echo !empty($user->plan_id) ? $user->plan_name : 'No Internet Plan Assigned!' ; ?></p>
-
-            <hr>
-
-            <strong><i class="fas fa-phone-alt mr-1"></i>VoIP #</strong>
-            <p class="text-muted"><?php echo !empty($user->voip_id) ? $user->voip_no : 'No VoIP # Assigned!' ; ?></p>
-
-            <hr>
-
-            <strong><i class="fas fa-hdd mr-1"></i>STB #</strong>
-            <p class="text-muted">
-              <?php if(!empty($userstb)){ foreach($userstb as $row){ ?>
-                <span><?php echo $row->stb_no.' - '.$row->vendor_name.' - Rs.'.$row->pack_rate; ?></span><br>
-              <?php }} else { ?>
-                <span>No STB Assigned!</span>
-              <?php } ?>
-            </p>
+            <?php if(!empty($user->voip_id)): ?>
+              <hr>
+              <strong><i class="fas fa-phone-alt mr-1"></i>VoIP #</strong>
+              <p class="text-muted"><?php echo $user->voip_no; ?></p>
+            <?php endif; ?>
+            
+            <?php if(!empty($userstb)): ?>
+              <hr>
+              <strong><i class="fas fa-hdd mr-1"></i>STB #</strong>
+              <p class="text-muted">
+                <?php foreach($userstb as $row): ?>
+                  <span><?php echo $row->stb_no.' - '.$row->vendor_name.' - Rs.'.$row->pack_rate; ?></span><br>
+                <?php endforeach; ?>
+              </p>
+            <?php endif; ?>
           </div>
           <!-- /.card-body -->
         </div>
