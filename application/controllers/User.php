@@ -42,17 +42,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data = array();
 			$data['area'] = $this->Area_Model->fetch_all_area();
 
-			$this->form_validation->set_rules('username', 'Username', 'required');
-			$this->form_validation->set_rules('password', 'Password', 'required');
 			$this->form_validation->set_rules('first_name', 'First Name', 'required');
 			$this->form_validation->set_rules('last_name', 'Last Name', 'required');
 			$this->form_validation->set_rules('contact_no', 'Contact #', 'required');
-			$this->form_validation->set_rules('email', 'Email', 'valid_email|required');
 			$this->form_validation->set_rules('bill_address', 'Billing Address', 'required');
 			$this->form_validation->set_rules('install_address', 'Installation Address', 'required');
 			$this->form_validation->set_rules('area_id', 'Area', 'required');
 			$this->form_validation->set_rules('user_status', 'User Status', 'required');
-			$this->form_validation->set_rules('connection_type', 'Connection Type', 'required');
 
 			if($this->form_validation->run() == FALSE)
 			{
@@ -64,11 +60,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			else
 			{
 				$formArray = array();
-				$formArray['username'] = $this->input->post('username');
-				$formArray['password'] = $this->input->post('password');
 				$formArray['first_name'] = $this->input->post('first_name');
 				$formArray['last_name'] = $this->input->post('last_name');
 				$formArray['contact_no'] = $this->input->post('contact_no');
+				$formArray['alternate_no'] = $this->input->post('alternate_no');
 				$formArray['email'] = $this->input->post('email');
 				$formArray['bill_address'] = $this->input->post('bill_address');
 				$formArray['install_address'] = $this->input->post('install_address');
@@ -76,7 +71,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$formArray['business_name'] = $this->input->post('business_name');
 				$formArray['business_gst'] = $this->input->post('business_gst');
 				$formArray['user_status'] = $this->input->post('user_status');
-				$formArray['connection_type'] = $this->input->post('connection_type');
 
 				$this->User_Model->create_user($formArray);
 				$this->session->set_flashdata('success', 'User Added Successfully');
@@ -123,9 +117,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data['stb'] = $this->Stb_Model->fetch_all_stb();
 			$data['userstb'] = $this->User_Model->fetch_user_stb($user_id);
 
+			$res = $this->Stb_Model->fetch_stb_id($this->input->post('stb_no')); // Getting STB ID from STB Number
+
 			$this->form_validation->set_rules('stb_no', 'STB #', 'required');
 
-			if($this->form_validation->run() == FALSE)
+			if($this->form_validation->run() == FALSE || empty($res->stb_id))
 			{
 				$this->load->view('layouts/header');
 				$this->load->view('layouts/sidebar');
@@ -135,7 +131,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			else
 			{
-				$res = $this->Stb_Model->fetch_stb_id($this->input->post('stb_no')); // Getting STB ID from STB Number
 				$services = array();
 				$services['user_id'] = $user_id;
 				$services['stb_id'] = $res->stb_id;

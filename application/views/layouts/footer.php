@@ -83,14 +83,14 @@
            var stb_no = $('#stb_no').val();
            if(stb_no != '')
            {
-                $.ajax({
-                     url:"<?php echo base_url('stb_availability'); ?>",
-                     method:"POST",
-                     data:{stb_no:stb_no},
-                     success:function(data){
-                          $('#stb_checked').html(data);
-                     }
-                });
+              $.ajax({
+                 url:"<?php echo base_url('stb_availability'); ?>",
+                 method:"POST",
+                 data:{stb_no:stb_no},
+                 success:function(data){
+                      $('#stb_checked').html(data);
+                 }
+              });
            }
       });
   });
@@ -102,14 +102,14 @@
            var voip_no = $('#voip_no').val();
            if(voip_no != '')
            {
-                $.ajax({
-                     url:"<?php echo base_url('voip_availability'); ?>",
-                     method:"POST",
-                     data:{voip_no:voip_no},
-                     success:function(data){
-                          $('#voip_checked').html(data);
-                     }
-                });
+              $.ajax({
+                   url:"<?php echo base_url('voip_availability'); ?>",
+                   method:"POST",
+                   data:{voip_no:voip_no},
+                   success:function(data){
+                        $('#voip_checked').html(data);
+                   }
+              });
            }
       });
   });

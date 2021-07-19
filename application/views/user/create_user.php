@@ -2,12 +2,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Add User</h1>
+        <h1 class="m-0">User Registration</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-          <li class="breadcrumb-item active">User Management</li>
+          <li class="breadcrumb-item active">User Registration</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -27,20 +27,6 @@
       <!-- form start -->
       <?php echo form_open('create_user'); ?>
         <div class="card-body">
-          
-          <div class="form-row">
-            <div class="form-group col-md">
-              <label for="inputUsername">Username</label>
-              <input type="text" name="username" class="form-control" id="inputUsername">
-              <div class="text-danger"><?php echo form_error('username'); ?></div>
-            </div>
-
-            <div class="form-group col-md">
-              <label for="inputPass">Password</label>
-              <input type="text" name="password" class="form-control" id="inputPass">
-              <div class="text-danger"><?php echo form_error('password'); ?></div>
-            </div>
-          </div>
 
           <div class="form-row">
             <div class="form-group col-md">
@@ -95,15 +81,10 @@
               </select>
               <div class="text-danger"><?php echo form_error('area_id'); ?></div>
             </div>
-
             <div class="form-group col-md">
-              <label for="inputConnType">Connection Type</label>
-              <select name="connection_type" class="custom-select" id="inputConnType">
-                <option value="">Choose...</option>
-                <option value="Fiber Connection" selected="">Fiber Connection</option>
-                <option value="Cat5 Connection">Cat5 Connection</option>
-              </select>
-              <div class="text-danger"><?php echo form_error('connection_type'); ?></div>
+              <label for="inputContact">Alternate Contact #</label>
+              <input type="text" name="alternate_no" class="form-control" id="inputContact">
+              <div class="text-danger"><?php echo form_error('alternate_no'); ?></div>
             </div>
           </div>
 

@@ -30,14 +30,12 @@
 
             <h3 class="profile-username text-center"><?php echo $user->first_name .' '. $user->last_name; ?></h3>
 
-            <p class="text-muted text-center"><?php echo $user->username; ?></p>
-
           <div class="btn-group btn-block" role="group">
               <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
               <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                 <a class="dropdown-item" href="<?php echo base_url('assign_validity/' . $user->user_id); ?>">Renew Plan</a>
                 <a class="dropdown-item" href="#">Update Profile</a>
-                <a class="dropdown-item" href="<?php echo base_url('add_cable/' . $user->user_id); ?>">Add STB</a>
+                <a class="dropdown-item" href="<?php echo base_url('add_cable/' . $user->user_id); ?>">Add Set-Top Box</a>
                 <a class="dropdown-item" href="<?php echo base_url('add_net/' . $user->user_id); ?>">Add Internet Plan</a>
                 <a class="dropdown-item" href="<?php echo base_url('add_voip/' . $user->user_id); ?>">Add VoIP Number</a>
               </div>

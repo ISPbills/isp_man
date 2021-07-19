@@ -41,7 +41,6 @@
           <thead>
             <tr>
               <th>Action</th>
-              <th>Username</th>
               <th>Name</th>
               <th>Contact #</th>
               <th>Email</th>
@@ -65,7 +64,6 @@
                   </div>
                 </div>
               </td>
-              <td><?php echo $row->username; ?></td>
               <td><?php echo $row->first_name .' '. $row->last_name; ?></td>
               <td><?php echo $row->contact_no; ?></td>
               <td><?php echo $row->email; ?></td>
@@ -80,7 +78,7 @@
             </tr>
           <?php }} else { ?>
             <tr>
-              <td colspan="9">No record(s) found!</td>
+              <td colspan="8">No record(s) found!</td>
             </tr>
           <?php } ?>
           </tbody>
