@@ -32,26 +32,31 @@
                 <input type="text" class="form-control" name="install_charge" id="inputInstallDeposit">
               </div>
             </div>
+
             <div class="form-row">
               <div class="form-group col-md">
-                <label for="inputInstallDeposit">Installation Deposit</label>
-                <input type="number" class="form-control" name="install_charge" id="inputInstallDeposit">
-              </div>
-              <div class="form-group col-md">
-                <label for="inputInstallRef">Installation Refund</label>
-                <input type="number" class="form-control" name="install_refund" id="inputInstallRef">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Installation</span>
+                  </div>
+                  <input type="number" aria-label="Deposit" placeholder="Deposit" name="install_charge" class="form-control">
+                  <input type="number" aria-label="Refund" placeholder="Refund" name="install_refund" class="form-control">
+                </div>
               </div>
             </div>
+
             <div class="form-row">
               <div class="form-group col-md">
-                <label for="inputDevDep">Router Deposit</label>
-                <input type="number" class="form-control" name="router_charge" id="inputDevDep">
-              </div>
-              <div class="form-group col-md">
-                <label for="inputRouterRef">Router Refund</label>
-                <input type="number" class="form-control" name="router_refund" id="inputRouterRef">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Router</span>
+                  </div>
+                  <input type="number" aria-label="Deposit" placeholder="Deposit" name="router_charge" class="form-control">
+                  <input type="number" aria-label="Refund" placeholder="Refund" name="router_refund" class="form-control">
+                </div>
               </div>
             </div>
+
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
