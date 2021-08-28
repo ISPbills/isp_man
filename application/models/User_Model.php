@@ -72,22 +72,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $stb->result();
 		}
 
+		public function fetch_user_net($user_id)
+		{
+			$this->db->select('*');
+			$this->db->from('tbl_services');
+			$this->db->join('tbl_user', 'tbl_user.user_id = tbl_services.user_id', 'left');
+			$this->db->join('tbl_internet', 'tbl_internet.user_id = tbl_services.user_id', 'right');
+			$this->db->where('tbl_services.user_id', $user_id);
+			$this->db->group_by('tbl_services.user_id');
+			$net = $this->db->get();
+			return $net->result();
+		}
+
 		public function add_cable($services, $charges)
 		{
 			$this->db->insert('tbl_services', $services);
-			$this->db->insert('tbl_charges_cable', $charges);
+			$this->db->insert('tbl_cable_info', $charges);
 		}
 
 		public function add_net($services, $charges)
 		{
 			$this->db->insert('tbl_services', $services);
-			$this->db->insert('tbl_charges_net', $charges);
+			$this->db->insert('tbl_internet_info', $charges);
 		}
 
 		public function add_voip($services, $charges)
 		{
 			$this->db->insert('tbl_services', $services);
-			$this->db->insert('tbl_charges_voip', $charges);
+			$this->db->insert('tbl_voip_info', $charges);
 		}
 
 	}

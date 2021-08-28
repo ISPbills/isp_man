@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->Branch_Model->create_branch($formArray);
 
 				$this->session->set_flashdata('success', 'Branch Added Successfully');
-				redirect('Administration/branch_list');
+				redirect('branch_list');
 			}
 		}
 

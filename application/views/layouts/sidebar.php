@@ -74,14 +74,14 @@
             <li class="nav-item">
               <a href="<?php echo base_url('area_list'); ?>" class="nav-link">
                 <i class="fas fa-building nav-icon"></i>
-                <p>User Area</p>
+                <p>Area</p>
               </a>
             </li>
 
             <li class="nav-item">
               <a href="<?php echo base_url('branch_list'); ?>" class="nav-link">
                 <i class="fas fa-store-alt nav-icon"></i>
-                <p>Staff Branch</p>
+                <p>Branch</p>
               </a>
             </li>
 

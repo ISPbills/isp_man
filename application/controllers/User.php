@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				$this->User_Model->create_user($formArray);
 				$this->session->set_flashdata('success', 'User Added Successfully');
-				redirect(base_url('assign_plan/' . $this->db->insert_id()));
+				redirect(base_url('choose_service/' . $this->db->insert_id()));
 			}
 		}
 
