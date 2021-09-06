@@ -31,7 +31,7 @@
             <h3 class="profile-username text-center"><?php echo $user->first_name .' '. $user->last_name; ?></h3>
 
           <div class="btn-group btn-block" role="group">
-              <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+              <button id="btnGroupDrop1" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
               <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                 <a class="dropdown-item" href="<?php echo base_url('assign_validity/' . $user->user_id); ?>">Renew Plan</a>
                 <a class="dropdown-item" href="#">Update Profile</a>
@@ -46,7 +46,7 @@
         <!-- /.card -->
 
         <!-- About Me Box -->
-        <div class="card card-primary">
+        <div class="card card-info">
           <div class="card-header">
             <h3 class="card-title">Basic Details</h3>
           </div>

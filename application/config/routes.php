@@ -63,7 +63,7 @@ $route['dashboard'] = 'Dashboard/index';
 // User
 $route['user_list'] = 'User/user_list';
 $route['create_user'] = 'User/create_user';
-$route['choose_service/(:num)'] = 'User/choose_service/$1';
+$route['user_overview/(:num)'] = 'User/user_overview/$1';
 $route['stb_availability'] = 'User/stb_availability';
 $route['add_cable/(:num)'] = 'User/add_cable/$1';
 $route['add_net/(:num)'] = 'User/add_net/$1';

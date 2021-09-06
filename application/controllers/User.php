@@ -74,15 +74,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				$this->User_Model->create_user($formArray);
 				$this->session->set_flashdata('success', 'User Added Successfully');
-				redirect(base_url('choose_service/' . $this->db->insert_id()));
+				redirect(base_url('user_overview/' . $this->db->insert_id()));
 			}
 		}
 
-		public function choose_service($user_id)
+		public function user_overview($user_id)
 		{
 
 			$data = array();
-			$data['title'] = 'Assign Services';
+			$data['title'] = 'User Overview';
 			$data['user'] = $this->User_Model->fetch_user_detail($user_id);
 			$data['net'] = $this->Internet_Model->fetch_all_internet_plan();
 			$data['voip'] = $this->Voip_Model->fetch_all_voip();
@@ -92,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->load->view('layouts/header');
 			$this->load->view('layouts/sidebar');
 			$this->load->view('user/profile_base', $data);
-			$this->load->view('user/choose_service');
+			$this->load->view('user/user_overview');
 			$this->load->view('layouts/footer');
 
 		}

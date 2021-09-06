@@ -59,7 +59,7 @@
                     Action
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="<?php echo base_url('choose_service/' . $row->user_id); ?>">Assign Services</a>
+                    <a class="dropdown-item" href="<?php echo base_url('user_overview/' . $row->user_id); ?>">Assign Services</a>
                     <a class="dropdown-item" href="<?php echo base_url('assign_validity/' . $row->user_id); ?>">Assign Validity</a>
                   </div>
                 </div>
